@@ -1,0 +1,326 @@
+<template> 
+
+<div class="principal">
+
+    <button class="cargarCampo" @click="cargarCampo">
+        cargar campo
+    </button>   
+    <div class="contenedorLuna"> 
+ <!---------signo----------------->               
+       
+        <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
+                    <input list="opcionesCeres1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__ceres en signo">
+                       <datalist id="opcionesCeres1">
+                          <option v-for="signo in signosCeres" :key="signo.id">{{signo}}</option> 
+                    </datalist>
+            <div class="cargar1">
+                <button  id="cargar1" type="submit">
+                    cargar
+                </button>
+                <button  id="borrar1" @click.prevent="deleteInput1()">
+                    borrar
+                </button>
+            </div> 
+
+        </form>
+ <!-------------casa---------------->     
+        <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
+
+           <input list="opcionesCeres2" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__ceres en casa">
+               <datalist id="opcionesCeres2">
+                    <option v-for="casa in casasCeres" :key="casa.id">{{casa}}</option>
+              </datalist>
+
+            <div class="cargar2">
+                <button  id="cargar2" type="submit">
+                    cargar
+                </button>
+                <button  id="borrar2" @click.prevent="deleteInput2()">
+                    borrar
+                </button>
+            </div>
+
+        </form>
+
+      
+    
+
+        
+<!------------aspecto------------->       
+           <form class="aspectos" v-on:submit.prevent="cargarInput3()" action="" >
+            <div class="contenedorAspectosInvisibles">
+
+
+                <div class='botonAspec' style="display:none;"  >
+                    <button   @click.prevent= "addAspecto">
+                        agregar
+                    </button>
+                    <button   @click.prevent="deleteAspecto">
+                        borrar
+                    </button>
+                </div>
+
+
+                <div class="aspectos2"  >
+                    <div class="aspectos6" style="display:none;" >
+                        <div v-for="(find,index) in dato3" :key="find.id">
+                            <input list="opcionesCeres" v-model="find.value" :key="index" placeholder="__aspectos del ceres">
+                            <datalist id="opcionesCeres">
+                                <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
+                            </datalist>
+                        </div>
+                    </div>
+                    <div  style="width:200px;" > 
+                        <div class="cargarAspectos2" style="display:none;" >
+                            <button   type="submit">
+                                    cargar aspectos
+                            </button>
+                        </div>
+        
+                        
+                            <div class="cargarCampo2">
+                                        <button  @click="cargarCampo">
+                                            cargar campo
+                                        </button>  
+                            </div>
+
+                            <div class="limpiarCamp2">
+                                <button id='limpiar' v-on:click="limpiarCampo">
+                                    limpiar campo
+                                </button>
+                            </div>
+                        
+                    </div> 
+
+                </div>
+            
+            </div>
+            </form>
+<!---------------------------------------------------------------------------------------------------->
+        
+            </div>
+               <div class="limpiarCamp">
+                        <button id='limpiar' v-on:click="limpiarCampo">
+                            limpiar campo
+                        </button>
+                </div>
+
+        
+    
+            
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+           
+        
+</template>
+
+
+
+<script>
+
+
+
+export default {
+  name: 'ceres',
+  methods:{
+    
+
+
+    cargarCampo(){
+        this.cargarInput1();
+        this.cargarInput2();
+        this.cargarInput3();
+    }
+    ,
+    async cargarInput1(){
+        
+        if(this.dato1!=""){
+        let peticionTipo={nombre:'ceres_ensigno'};
+        await axios.post('/carta',peticionTipo).then((response)=>{
+            let texto={
+                'id':30,
+                'nombre':'ceres en el signo',
+                'definicion': response.data
+            }
+            
+            this.$emit('tipo1',texto);
+           })
+        let peticion={
+            nombre:this.dato1
+        }
+         await axios.post('/carta',peticion).then((response)=>{
+        let texto={
+            'id':30,
+            'nombre':this.dato1,
+            'definicion': response.data
+        }
+        
+        this.$emit('first',texto);
+       })}
+    
+    },
+    async cargarInput2(){
+        if(this.dato2!=""){
+        let peticionTipo={nombre:'ceres_encasa'};
+        await axios.post('/carta',peticionTipo).then((response)=>{
+            let texto={
+                'id':30,
+                'nombre':'ceres en la Casa',
+                'definicion': response.data
+            }
+            
+            this.$emit('tipo2',texto);
+           })
+        let peticion={
+            nombre:this.dato2
+        }
+         await axios.post('/carta',peticion).then((response)=>{
+        let texto={
+            'id':30,
+            'nombre':this.dato2,
+            'definicion': response.data
+        }
+        
+        this.$emit('second',texto);
+       })}
+    
+    },
+    async cargarInput3(){
+
+        let {value}=this.dato3[0];
+        
+       if (value!=''){ 
+       
+        await axios.post('/aspectos',this.dato3).then((response)=>{        
+        let nombre=response.data.value;
+        let definicion=response.data.respuestas;
+        let data=new Array(definicion.length);
+        let i=0;
+        nombre.forEach(element => {
+           if(definicion[i]!=""){
+            data[i]={
+                'nombre':element,
+                'definicion':definicion[i]
+            }}else{data[i]={'nombre':'','definicion':''}
+        }
+            i++;
+        });
+        let texto={
+            'id':30,
+            'aspectos':data
+        }
+        this.$emit('third',texto);
+        
+      });
+       }
+    }
+    
+    ,
+    addAspecto:function(){
+        this.dato3.push({value:''})
+        
+    }
+    ,
+    deleteAspecto:function(index){
+        console.log(index);
+        console.log(this.dato3);
+        let ind=this.dato3.length;
+        this.dato3.splice(ind-1,1);
+        let texto={'id':30}
+        this.$emit('deleteAspecto',texto);
+    }
+    ,
+    deleteInput1(){
+        this.dato1="";
+        let texto={'id':30}
+        this.$emit('deleteDefinicion1',texto);
+    }
+    ,
+    deleteInput2(){
+        this.dato2="";
+        let texto={'id':30}
+        this.$emit('deleteDefinicion2',texto);
+    },
+    deleteAspectos(){
+        this.dato3=[];
+        let texto={'id':30}
+        this.$emit('deleteAspectos',texto)
+    }
+    ,
+    limpiarCampo(){
+     this.deleteInput1();
+     this.deleteInput2();   
+     this.deleteAspectos();
+     this.addAspecto();   
+    }
+     
+    
+},
+
+data(){
+    return{
+        dato1:'',
+        dato2:'',
+        count:0,
+        dato3:[],
+        casasCeres:[
+          "ceres en casa 1",
+            "ceres en casa 2",
+            "ceres en casa 3",
+            "ceres en casa 4",
+            "ceres en casa 5",
+            "ceres en casa 6",
+            "ceres en casa 7",
+            "ceres en casa 8",
+            "ceres en casa 9",
+            "ceres en casa 10",
+            "ceres en casa 11",
+            "ceres en casa 12"
+        ],
+      signosCeres:[
+         "ceres en aries",
+            "ceres en tauro",
+            "ceres en géminis",
+            "ceres en cáncer",
+            "ceres en leo",
+            "ceres en virgo",
+            "ceres en libra",
+            "ceres en escorpio",
+            "ceres en sagitario",
+            "ceres en capricornio",
+            "ceres en acuario",
+            "ceres en piscis"
+      ],
+       aspectos:[
+       ]         
+    }
+}
+,
+mounted(){
+    this.addAspecto()
+},
+
+
+  created: function(){
+    this.$parent.$on('clean', this.limpiarCampo);
+    
+    
+    this.$parent.$on('update', this.cargarCampo);
+  }
+}
+
+import axios from 'axios'
+  
+
+</script>
