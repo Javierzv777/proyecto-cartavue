@@ -9,10 +9,12 @@
        
         <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
 
-            <input list="opcionesFortuna1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__fortuna en signo">
-                <datalist id="opcionesFortuna1">
-                 <option v-for="signo in signosFortuna" :key="signo.id">{{signo}}</option> 
-                </datalist>
+             <select   v-model="dato1" style="width:175px;" class="select" >
+                <option disabled value=""  >__fortuna en signo
+                </option>
+                <option v-for="signo in signos" :key="signo.id">{{signo}}
+                </option>
+            </select>
 
             <div class="cargar1">
                 <button  id="cargar1" type="submit">
@@ -27,10 +29,12 @@
  <!-------------casa---------------->     
         <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
 
-            <input list="opcionesFortuna2" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__fortuna en casa">
-                <datalist id="opcionesFortuna2">
-                    <option v-for="casa in casasFortuna" :key="casa.id">{{casa}}</option>
-                </datalist>
+            <select   v-model="dato2" style="width:175px; " class="select" >
+                <option disabled value=""  >__fortuna en casa
+                </option>
+                <option v-for="casa in casas" :key="casa.id" >{{casa}}
+                </option>
+            </select>
 
             <div class="cargar2">
                 <button  id="cargar2" type="submit">
@@ -269,7 +273,7 @@ data(){
         dato2:'',
         count:0,
         dato3:[],
-        casasFortuna:[
+        casas:[
           "fortuna en casa 1",
             "fortuna en casa 2",
             "fortuna en casa 3",
@@ -283,7 +287,7 @@ data(){
             "fortuna en casa 11",
             "fortuna en casa 12"
         ],
-      signosFortuna:[
+      signos:[
          "fortuna en aries",
             "fortuna en tauro",
             "fortuna en géminis",

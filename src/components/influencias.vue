@@ -22,10 +22,16 @@
                         <div class="uniaspecto2">
                             <div class=""  >
                                 <div v-for="(find,index) in dato3"  :key="find.id">
-                                    <input class="uniaspecto3" list="influencias" v-model="find.value" :key="index" placeholder="__inluencias">
+                                    <select class="uniaspecto3 select" style="width:170px;" v-model="find.value" :key="index">
+                                        <option   disabled value=""  >__influencias
+                                        </option>
+                                        <option v-for="influencia in influencias" :key="influencia.id">{{influencia}}
+                                        </option>
+                                    </select>
+                                    <!--input class="uniaspecto3" list="influencias" v-model="find.value" :key="index" placeholder="__inluencias">
                                         <datalist id="influencias">
                                             <option v-for="influencia in influencias" :key="influencia.id">{{influencia}}</option>
-                                        </datalist>
+                                        </datalist-->
                                 </div>                                 
                             </div>
                         </div>
@@ -33,7 +39,7 @@
                         <div class="uniaspecto4" >    
                             
                             <div class="uniaspecto5"  > 
-                                <div class="cargarPlanetas" >
+                                <div class="cargarPlanetas"  style="visibility:hidden;" >
                                     <button   type="submit">
                                             cargar predicción
                                     </button>

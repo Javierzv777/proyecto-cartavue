@@ -8,11 +8,13 @@
  <!---------signo----------------->               
         
         <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
-            <input list="opcionesnakshatra1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__nakshatra">
-                <datalist id="opcionesnakshatra1">
-                    <option v-for="nakshatra in nakshatras" :key="nakshatra.id">{{nakshatra}}</option>
-                </datalist>
-
+            <select   v-model="dato1" style="width:175px;" class="select" >
+                <option disabled value=""  >__nakshatra
+                </option>
+                <option v-for="nakshatra in nakshatras" :key="nakshatra.id">{{nakshatra}}
+                </option>
+            </select>
+           
 
             <div class="cargar1">
                 <button  id="cargar1" type="submit">

@@ -3,11 +3,11 @@
     <div  style="height:80px;">
        
         
-        <h1 style="color:white; font-style:italic; position:relative; 
-         margin-botton:250px; padding-top:30px; text-align:center;">Carta Astral</h1>
+        <h1 class="justify"  style="color:white; font-style:italic; position:relative; 
+         margin-botton:250px; padding-top:30px; ">Carta Astral</h1>
         </div>
 
-        <div style="text-align:center; color:white; font-style:italic;">
+        <div  class="justify" style=" color:white; font-style:italic;">
         <h3>El informe natal, Es un informe detallado de tus potenciales y de tu vida, incluye relaciones, inclinación vocacional, identidad y objetivos, panorama general de personalidad, salud, trabajo, inversiones e ingresos, dificultades y ventajas, etc.
          Se obtiene a partir de diferentes interpretaciones que se toman de la ubicación de los astros al momento del nacimiento. Este formulario y aplicación es solo de definiciones, para saber la ubicación de los planetas puedes cargar un radix o rueda natal en páginas que ofrecen ese servicio como:</h3>
         <a href="https://astro.com" target="_blank" >https://astro.com</a>
@@ -46,7 +46,7 @@
         </div>
 
     <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Ascendente')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Ascendente')">deslizar al campo cargado</button>           
     </div>    
 
         <div style="clear:both;">
@@ -69,7 +69,7 @@
         </div>
         
         <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Sol')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Sol')">deslizar al campo cargado</button>           
         </div>
 
         <div style="clear:both;">
@@ -92,7 +92,7 @@
     </div>
         
         <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Luna')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Luna')">deslizar al campo cargado</button>           
         </div>
 
         <div   style="clear:both;">
@@ -115,7 +115,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Mercurio')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Mercurio')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -138,7 +138,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Venus')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Venus')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -161,7 +161,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Marte')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Marte')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -186,7 +186,7 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum maxime voluptas repudiandae. Porro laudantium temporibus eveniet nesciunt quidem ex accusamus perspiciatis aperiam veniam dicta, esse praesentium quasi fugit sit! Fugit?</p>
     </div>
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Jupiter')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Jupiter')">deslizar al campo cargado</button>           
         </div>
 
         <div style="clear:both;">
@@ -209,7 +209,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Saturno')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Saturno')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -232,7 +232,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Urano')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Urano')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -255,7 +255,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Neptuno')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Neptuno')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -278,7 +278,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Pluton')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Pluton')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -301,7 +301,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Lilith')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Lilith')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -324,7 +324,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Quiron')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Quiron')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -347,7 +347,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Ceres')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Ceres')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -370,7 +370,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Palas')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Palas')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -393,7 +393,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Juno')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Juno')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -416,7 +416,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Vesta')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Vesta')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -439,7 +439,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Nodos')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Nodos')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -462,7 +462,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Fortuna')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Fortuna')">deslizar al campo cargado</button>           
         </div>
 
         <div style="clear:both;">
@@ -484,7 +484,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Infortunio')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Infortunio')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -506,7 +506,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Retrogrados')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Retrogrados')">deslizar al campo cargado</button>           
         </div>
 
         <div style="clear:both;">
@@ -529,7 +529,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Influencias')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Influencias')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">
@@ -552,7 +552,7 @@
     </div>
         
          <div>
-        <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Hemisferios')">deslizar al campo cargado</button>           
+        <button style='float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;' @click="bajar('Hemisferios')">deslizar al campo cargado</button>           
         </div>
         
         <div style="clear:both;">

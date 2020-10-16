@@ -9,10 +9,12 @@
  <!---------signo----------------->               
        
         <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
-                    <input list="opcionesCeres1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__ceres en signo">
-                       <datalist id="opcionesCeres1">
-                          <option v-for="signo in signosCeres" :key="signo.id">{{signo}}</option> 
-                    </datalist>
+            <select   v-model="dato1" style="width:175px;" class="select" >
+                <option disabled value=""  >__ceres en signo
+                </option>
+                <option v-for="signo in signosCeres" :key="signo.id">{{signo}}
+                </option>
+            </select>
             <div class="cargar1">
                 <button  id="cargar1" type="submit">
                     cargar
@@ -26,10 +28,12 @@
  <!-------------casa---------------->     
         <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
 
-           <input list="opcionesCeres2" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__ceres en casa">
-               <datalist id="opcionesCeres2">
-                    <option v-for="casa in casasCeres" :key="casa.id">{{casa}}</option>
-              </datalist>
+           <select   v-model="dato2" style="width:175px; " class="select" >
+                <option disabled value=""  >__ceres en casa
+                </option>
+                <option v-for="casa in casasCeres" :key="casa.id" >{{casa}}
+                </option>
+            </select>
 
             <div class="cargar2">
                 <button  id="cargar2" type="submit">

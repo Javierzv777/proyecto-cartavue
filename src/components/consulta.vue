@@ -25,19 +25,19 @@
 <div v-if= "consulta.hemisferios==true" id="bajarHemisferios"></div>
 <div v-if= "consulta.nakshatra==true" id="bajarNakshatra"></div>
 
-    <h3>{{consulta.tipo1}}</h3>
-    <p>{{consulta.descripcionTipo1}}</p>
-    <h3 style="margin-top:40px">{{consulta.nombre1}}</h3>
-    <p>{{consulta.definicion1}}</p>
+    <h3 class="justify" >{{consulta.tipo1}}</h3>
+    <p class="justify" >{{consulta.descripcionTipo1}}</p>
+    <h3 class="justify"  style="margin-top:40px">{{consulta.nombre1}}</h3>
+    <p class="justify" >{{consulta.definicion1}}</p>
 
-    <h3 style="margin-top:40px">{{consulta.tipo2}}</h3>
-    <p>{{consulta.descripcionTipo2}}</p>
-    <h3 style="margin-top:40px">{{consulta.nombre2}}</h3>
-    <p>{{consulta.definicion2}}</p>
+    <h3 class="justify"  style="margin-top:40px">{{consulta.tipo2}}</h3>
+    <p class="justify" >{{consulta.descripcionTipo2}}</p>
+    <h3 class="justify" style="margin-top:40px">{{consulta.nombre2}}</h3>
+    <p class="justify" >{{consulta.definicion2}}</p>
 
     <div v-for="aspecto of consulta.aspectos" :key="aspecto.id">
-        <h3>{{aspecto.nombre}}</h3>
-        <p>{{aspecto.definicion}}</p>
+        <h3 class="justify" >{{aspecto.nombre}}</h3>
+        <p class="justify" >{{aspecto.definicion}}</p>
     </div>
     <button v-if="consulta.ascendente==true && consulta.volver==true"  @click="volver('Ascendente')">volver</button>
     <button v-if="consulta.medioCielo==true && consulta.volver==true"  @click="volver('Ascendente')">volver</button>

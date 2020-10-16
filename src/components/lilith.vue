@@ -8,10 +8,12 @@
  <!---------signo----------------->               
        
         <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
-            <input list="opcionesLilith1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__lilith en signo">
-                <datalist id="opcionesLilith1">
-                    <option v-for="signo in signosLilith" :key="signo.id">{{signo}}</option> 
-                </datalist>
+            <select   v-model="dato1" style="width:175px;" class="select" >
+                <option disabled value=""  >__lilith en signo
+                </option>
+                <option v-for="signo in signos" :key="signo.id">{{signo}}
+                </option>
+            </select>
 
             <div class="cargar1">
                 <button  id="cargar1" type="submit">
@@ -26,10 +28,12 @@
  <!-------------casa---------------->     
         <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
 
-            <input list="opcionesLilith2" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__lilith en casa">
-                <datalist id="opcionesLilith2">
-                    <option v-for="casa in casasLilith" :key="casa.id">{{casa}}</option>
-                </datalist>
+            <select   v-model="dato2" style="width:175px; " class="select" >
+                <option disabled value=""  >__lilith en casa
+                </option>
+                <option v-for="casa in casas" :key="casa.id" >{{casa}}
+                </option>
+            </select>
 
             <div class="cargar2">
                 <button  id="cargar2" type="submit">
@@ -270,7 +274,7 @@ data(){
         dato2:'',
         count:0,
         dato3:[],
-        casasLilith:[
+        casas:[
           "lilith en casa 1",
             "lilith en casa 2",
             "lilith en casa 3",
@@ -284,7 +288,7 @@ data(){
             "lilith en casa 11",
             "lilith en casa 12"
         ],
-      signosLilith:[
+      signos:[
          "lilith en aries",
             "lilith en tauro",
             "lilith en géminis",

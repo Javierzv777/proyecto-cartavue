@@ -9,10 +9,12 @@
        
         <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
 
-            <input list="opcionesVenus1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__venus en signo">
-                <datalist id="opcionesVenus1">
-                    <option v-for="signo in signosVenus" :key="signo.id">{{signo}}</option> 
-                </datalist>
+            <select   v-model="dato1" style="width:175px;" class="select" >
+                <option disabled value=""  >__venus en signo
+                </option>
+                <option v-for="signo in signosVenus" :key="signo.id">{{signo}}
+                </option>
+            </select>
 
             <div class="cargar1">
                 <button  id="cargar1" type="submit">
@@ -26,10 +28,12 @@
         </form>
  <!-------------casa---------------->     
         <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
-            <input list="opcionesVenus2" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__venus en casa">
-                <datalist id="opcionesVenus2">
-                    <option v-for="casa in casasVenus" :key="casa.id">{{casa}}</option>
-                </datalist>
+            <select   v-model="dato2" style="width:175px; " class="select" >
+                <option disabled value=""  >__venus en casa
+                </option>
+                <option v-for="casa in casasVenus" :key="casa.id" >{{casa}}
+                </option>
+            </select>
             <div class="cargar2">
                 <button  id="cargar2" type="submit">
                     cargar
@@ -61,18 +65,27 @@
                 <div class="aspectos2"  >
                     <div class="aspectos6" >
                         <div v-for="(find,index) in dato3" :key="find.id">
-                            <input  class='aspectos5' list="opcionesVenus" v-model="find.value" :key="index" placeholder="__aspectos de" >
-                            <datalist id="opcionesVenus">
-                                <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
-                            </datalist>
+
+                            <select class='aspectos5 select'  v-model="find.value" :key="index">
+                                <option disabled value=""  >__aspectos de
+                                </option>
+                                <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}
+                                </option>
+                            </select>   
+                            <!--input  class='aspectos5' list="opcionesVenus" v-model="find.value" :key="index" placeholder="__aspectos de" >
+                                <datalist id="opcionesVenus">
+                                    <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
+                                </datalist-->
                         </div>
                     </div>
                     <div class='aspectos3' >
                         <div v-for="(find,index) in dato4" :key="find.id">
-                            <input class='aspectos4' list="opcionesVenus4" v-model="find.value" :key="index" placeholder="_venus" >
-                                <datalist id="opcionesVenus4">
-                                  <option v-for="aspecto in aspectos2" :key="aspecto.id">{{aspecto}}</option>
-                                </datalist>
+                             <select class='aspectos4 select'  v-model="find.value" :key="index">
+                                <option disabled value=""  >__venus
+                                </option>
+                                <option v-for="aspecto in aspectos2" :key="aspecto.id">{{aspecto}}
+                                </option>
+                            </select>
                         </div>
                     </div>
                     <div class="cargarAspectos"  > 

@@ -9,10 +9,12 @@
        
         <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
 
-            <input list="opcionesUrano1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__urano en signo">
-                    <datalist id="opcionesUrano1">
-                        <option v-for="signo in signosUrano" :key="signo.id">{{signo}}</option> 
-                    </datalist>
+            <select   v-model="dato1" style="width:175px;" class="select" >
+                <option disabled value=""  >__urano en signo
+                </option>
+                <option v-for="signo in signos" :key="signo.id">{{signo}}
+                </option>
+            </select>
 
 
             <div class="cargar1">
@@ -28,10 +30,12 @@
  <!-------------casa---------------->     
         <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
 
-            <input list="opcionesUrano2" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__urano en casa">
-                <datalist id="opcionesUrano2">
-                    <option v-for="casa in casasUrano" :key="casa.id">{{casa}}</option>
-                </datalist>
+            <select   v-model="dato2" style="width:175px; " class="select" >
+                <option disabled value=""  >__urano en casa
+                </option>
+                <option v-for="casa in casas" :key="casa.id" >{{casa}}
+                </option>
+            </select>
             <div class="cargar2">
                 <button  id="cargar2" type="submit">
                     cargar
@@ -63,18 +67,26 @@
                 <div class="aspectos2"  >
                     <div class="aspectos6" >
                         <div v-for="(find,index) in dato3" :key="find.id">
-                            <input  class='aspectos5' list="opcionesUrano" v-model="find.value" :key="index" placeholder="__aspectos de" >
+                            <select class='aspectos5 select '  v-model="find.value" :key="index">
+                                <option disabled value=""  >__aspectos de
+                                </option>
+                                <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}
+                                </option>
+                            </select>   
+                            <!--input  class='aspectos5' list="opcionesUrano" v-model="find.value" :key="index" placeholder="__aspectos de" >
                                 <datalist id="opcionesUrano">
                                     <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
-                                </datalist>
+                                </datalist-->
                         </div>
                     </div>
                     <div class='aspectos3' >
                         <div v-for="(find,index) in dato4" :key="find.id">
-                            <input class='aspectos4' list="opcionesUrano4" v-model="find.value" :key="index" placeholder="_urano" >
-                                <datalist id="opcionesUrano4">
-                                    <option v-for="aspecto in aspectos2" :key="aspecto.id">{{aspecto}}</option>
-                                </datalist>
+                            <select class='aspectos4 select'  v-model="find.value" :key="index">
+                                <option disabled value=""  >__urano
+                                </option>
+                                <option v-for="aspecto in aspectos2" :key="aspecto.id">{{aspecto}}
+                                </option>
+                            </select>
                         </div>
                     </div>
                     <div class="cargarAspectos"  > 
@@ -297,7 +309,7 @@ data(){
         dato3:[],
         dato4:[],
         dato5:[],
-        casasUrano:[
+        casas:[
           "urano en casa 1",
             "urano en casa 2",
             "urano en casa 3",
@@ -311,7 +323,7 @@ data(){
             "urano en casa 11",
             "urano en casa 12"
         ],
-      signosUrano:[
+      signos:[
          "urano en aries",
             "urano en tauro",
             "urano en géminis",

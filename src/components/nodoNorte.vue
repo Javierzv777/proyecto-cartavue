@@ -8,10 +8,12 @@
  <!---------signo----------------->               
        
         <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
-            <input list="opcionesNodo1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__nodo norte en signo">
-                <datalist id="opcionesNodo1">
-                    <option v-for="signo in signosNodoNorte" :key="signo.id">{{signo}}</option> 
-                </datalist>
+             <select   v-model="dato1" style="width:175px;" class="select" >
+                <option disabled value=""  >__nodo norte en signo
+                </option>
+                <option v-for="signo in signos" :key="signo.id">{{signo}}
+                </option>
+            </select>
 
             <div class="cargar1">
                 <button  id="cargar1" type="submit">
@@ -26,10 +28,12 @@
  <!-------------casa---------------->     
         <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
 
-            <input list="opcionesNodo2" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__nodo norte en casa">
-                <datalist id="opcionesNodo2">
-                    <option v-for="casa in casasNodoNorte" :key="casa.id">{{casa}}</option>
-                </datalist>
+            <select   v-model="dato2" style="width:175px; " class="select" >
+                <option disabled value=""  >__nodo norte en casa
+                </option>
+                <option v-for="casa in casas" :key="casa.id" >{{casa}}
+                </option>
+            </select>
 
             <div class="cargar2">
                 <button  id="cargar2" type="submit">
@@ -62,10 +66,16 @@
                 <div class="aspectos2"  >
                     <div class="aspectos6" >
                         <div v-for="(find,index) in dato3" :key="find.id">
-                            <input class="aspectos5unido" list="opcionesNodo3" v-model="find.value" :key="index" placeholder="__aspectos del nodo norte">
+                            <select class='aspectos5unido select'  v-model="find.value" :key="index">
+                                <option disabled value=""  >__aspectos del nodo norte
+                                </option>
+                                <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}
+                                </option>
+                            </select>
+                            <!--input class="aspectos5unido" list="opcionesNodo3" v-model="find.value" :key="index" placeholder="__aspectos del nodo norte">
                                 <datalist id="opcionesNodo3">
                                     <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
-                                </datalist>
+                                </datalist-->
                         </div>
                     </div>
                     <div class="cargarAspectos"  > 
@@ -265,7 +275,7 @@ data(){
         dato2:'',
         count:0,
         dato3:[],
-        casasNodoNorte:[
+        casas:[
           "nodo norte en casa 1",
             "nodo norte en casa 2",
             "nodo norte en casa 3",
@@ -279,7 +289,7 @@ data(){
             "nodo norte en casa 11",
             "nodo norte en casa 12"
         ],
-      signosNodoNorte:[
+      signos:[
          "nodo norte en aries",
             "nodo norte en tauro",
             "nodo norte en géminis",
@@ -294,7 +304,6 @@ data(){
             "nodo norte en piscis"
       ],
        aspectos:[
-         "nodo norte conjunción ",
                     "nodo norte conjunción ascendente",
                     "nodo norte trígono-sextil ascendente",
                     "nodo norte cuadratura ascendente",

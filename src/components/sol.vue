@@ -9,10 +9,16 @@
  <!---------signo----------------->               
        
         <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
-            <input list="opciones1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__sol en signo">
+            <select   v-model="dato1" style="width:175px;" class="select">
+                <option disabled value=""  >__sol en signo
+                </option>
+                <option v-for="signo in signos" :key="signo.id">{{signo}}
+                </option>
+            </select>
+            <!--input list="opciones1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__sol en signo">
                 <datalist id="opciones1">
                     <option v-for="signo in signos" :key="signo.id">{{signo}}</option> 
-                </datalist>
+                </datalist-->
             <div class="cargar1">
                 <button  id="cargar1" type="submit">
                     cargar
@@ -25,10 +31,16 @@
         </form>
  <!-------------casa---------------->     
         <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
-                <input list="opciones2" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__sol en casa">
+                <select   v-model="dato2" style="width:175px; " class="select" >
+                    <option disabled value=""  >__sol en casa
+                    </option>
+                    <option v-for="casa in casas" :key="casa.id" >{{casa}}
+                    </option>
+                </select>
+                <!--input list="opciones2" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__sol en casa">
                     <datalist id="opciones2">
                         <option v-for="casa in casas" :key="casa.id">{{casa}}</option>
-                    </datalist>
+                    </datalist-->
             <div class="cargar2">
                 <button  id="cargar2" type="submit">
                     cargar
@@ -60,18 +72,26 @@
                 <div class="aspectos2"  >
                     <div class="aspectos6" >
                         <div v-for="(find,index) in dato3" :key="find.id">
-                            <input class='aspectos5' list="opcionesPluton" v-model="find.value" :key="index" placeholder="__aspectos del" >
+                            <select class='aspectos5 select'  v-model="find.value" :key="index">
+                                <option disabled value=""  >__aspectos del
+                                </option>
+                                <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}
+                                </option>
+                            </select>
+                            <!--input class='aspectos5' list="opcionesPluton" v-model="find.value" :key="index" placeholder="__aspectos del" >
                             <datalist id="opcionesPluton">
                                 <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
-                            </datalist>
+                            </datalist-->
                         </div>
                     </div>
                     <div class='aspectos3' >
                         <div v-for="(find,index) in dato4" :key="find.id">
-                            <input class='aspectos4' list="opcionesPluton4" v-model="find.value" :key="index" placeholder="_sol" >
-                                <datalist id="opcionesPluton4">
-                                <option v-for="aspecto in aspectos2" :key="aspecto.id">{{aspecto}}</option>
-                                </datalist>
+                            <select class='aspectos4 select'  v-model="find.value" :key="index">
+                                <option disabled value=""  >__sol
+                                </option>
+                                <option v-for="aspecto in aspectos2" :key="aspecto.id">{{aspecto}}
+                                </option>
+                            </select>
                         </div>
                     </div>
                     <div class="cargarAspectos"  > 

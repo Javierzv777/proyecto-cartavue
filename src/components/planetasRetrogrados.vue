@@ -23,10 +23,16 @@
                         <div class="uniaspecto2">
                             <div class=""  >
                                 <div  v-for="(find,index) in dato3"  :key="find.id">
-                                    <input class="uniaspecto3"  list="PRetrogrados" v-model="find.value" :key="index" placeholder="__planetas retrogrados">
+                                    <select class="uniaspecto3 select"  v-model="find.value" :key="index">
+                                        <option disabled value=""  >__planetas retrogrados
+                                        </option>
+                                        <option v-for="retrogrado in retrogrados" :key="retrogrado.id">{{retrogrado}}
+                                        </option>
+                                    </select>
+                                    <!--input class="uniaspecto3"  list="PRetrogrados" v-model="find.value" :key="index" placeholder="__planetas retrogrados">
                                         <datalist id="PRetrogrados">
                                             <option v-for="retrogrado in retrogrados" :key="retrogrado.id">{{retrogrado}}</option>
-                                        </datalist>
+                                        </datalist-->
                                 </div>
                             </div>
                         </div>

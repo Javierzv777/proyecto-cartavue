@@ -8,10 +8,12 @@
  <!---------signo----------------->               
        
         <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
-            <input list="opcionesVesta1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__vesta en signo">
-                <datalist id="opcionesVesta1">
-                  <option v-for="signo in signosVesta" :key="signo.id">{{signo}}</option> 
-                </datalist>
+             <select   v-model="dato1" style="width:175px;" class="select" >
+                <option disabled value=""  >__vesta en signo
+                </option>
+                <option v-for="signo in signos" :key="signo.id">{{signo}}
+                </option>
+            </select>
 
             <div class="cargar1">
                 <button  id="cargar1" type="submit">
@@ -26,10 +28,12 @@
  <!-------------casa---------------->     
         <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
 
-             <input list="opcionesVesta2" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__vesta en casa">
-                <datalist id="opcionesVesta2">
-                    <option v-for="casa in casasVesta" :key="casa.id">{{casa}}</option>
-                </datalist>
+             <select   v-model="dato2" style="width:175px; " class="select" >
+                <option disabled value=""  >__vesta en casa
+                </option>
+                <option v-for="casa in casas" :key="casa.id" >{{casa}}
+                </option>
+            </select>
 
             <div class="cargar2">
                 <button  id="cargar2" type="submit">
@@ -264,7 +268,7 @@ data(){
         dato2:'',
         count:0,
         dato3:[],
-        casasVesta:[
+        casas:[
           "vesta en casa 1",
             "vesta en casa 2",
             "vesta en casa 3",
@@ -278,7 +282,7 @@ data(){
             "vesta en casa 11",
             "vesta en casa 12"
         ],
-      signosVesta:[
+      signos:[
          "vesta en aries",
             "vesta en tauro",
             "vesta en géminis",

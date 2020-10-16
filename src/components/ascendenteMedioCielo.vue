@@ -9,10 +9,12 @@
        
         <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
 
-            <input list="opcionesAscendente" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__ascendente">
-                <datalist id="opcionesAscendente">
-                    <option v-for="ascendente in ascendentes" :key="ascendente.id">{{ascendente}}</option>        
-                </datalist>
+            <select   v-model="dato1" style="width:175px;" class="select">
+                <option disabled value=""  >__ascendente
+                </option>
+                <option v-for="ascendente in ascendentes" :key="ascendente.id">{{ascendente}}
+                </option>
+            </select>
 
             <div class="cargar1">
                 <button  id="cargar1" type="submit">
@@ -27,10 +29,13 @@
  <!-------------casa---------------->     
         <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
 
-           <input list="opcionesMedioCielo" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__medio Cielo">
-                <datalist id="opcionesMedioCielo">
-                    <option v-for="medioCielo in medioCielos" :key="medioCielo.id">{{medioCielo}}</option>       
-                </datalist>
+             <select   v-model="dato2" style="width:175px;" class="select" >
+                <option disabled value=""  >__medio cielo
+                </option>
+                <option v-for="medioCielo in medioCielos" :key="medioCielo.id">{{medioCielo}}       
+                </option>
+            </select>
+          
 
             <div class="cargar2">
                 <button  id="cargar2" type="submit">

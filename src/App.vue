@@ -172,7 +172,9 @@ text-align:left;
 }
 
  
-
+.select{
+    background-color:white;
+}
 
 h3:first-letter{
     text-transform: uppercase;
@@ -496,7 +498,9 @@ float:left;}
 /*-----------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width: 500px){
     
-    
+    .justify{
+        text-align:justify;
+    }
     .contenedorAspectosInvisibles{
         position:absolute;
         left:70px;
@@ -512,7 +516,9 @@ float:left;}
          position:relative;
          right:0px;
      }
-    .container{text-align:left;}
+    .container{text-align:left;
+       
+    }
     body{
          margin:auto;
     }
@@ -520,17 +526,23 @@ float:left;}
         margin:auto;
         width:100%;
         padding:auto;
+        
+        
     }
 
     #padre{
+        
       padding-left:0%;
       margin:auto;
-      width:80%;
-      max-width:300px;
+      width:90%;
+      max-width:500px;
+      margin-left:20px;/*-----------------------------------------*/
+       padding-right:20px;
+       box-sizing:border-box;
     }
 
     .campo{
-        float:right;
+        left:50px;
         max-width:260px;
         width:80%;
         min-height: 170px;

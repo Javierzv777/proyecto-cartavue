@@ -22,10 +22,16 @@
                         <div class="uniaspecto2">
                             <div class=""  >
                                 <div v-for="(find,index) in dato3"  :key="find.id">
-                                    <input class="uniaspecto3" list="HemisferiosyCuadrantes" v-model="find.value" :key="index" placeholder="__cuadrantes">
+                                    <select class="uniaspecto3 select" v-model="find.value" :key="index">
+                                        <option  disabled value=""  >__cuadrantes
+                                        </option>
+                                        <option v-for="hemisferio in hemisferiosYCuadrantes" :key="hemisferio.id">{{hemisferio}}
+                                        </option>
+                                    </select>
+                                    <!--input class="uniaspecto3" list="HemisferiosyCuadrantes" v-model="find.value" :key="index" placeholder="__cuadrantes">
                                         <datalist id="HemisferiosyCuadrantes">
                                             <option v-for="hemisferio in hemisferiosYCuadrantes" :key="hemisferio.id">{{hemisferio}}</option>
-                                        </datalist>
+                                        </datalist-->
                                 </div>
                             </div>
                         </div>
@@ -33,7 +39,7 @@
                         <div class="uniaspecto4" >    
                             
                             <div class="uniaspecto5"  > 
-                                <div class="cargarPlanetas" >
+                                <div class="cargarPlanetas" style="visibility:hidden;">
                                     <button   type="submit">
                                             cargar hemisferio
                                     </button>

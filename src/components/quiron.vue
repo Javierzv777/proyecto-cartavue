@@ -9,10 +9,12 @@
  <!---------signo----------------->               
        
         <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
-            <input list="opcionesQuiron1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__quiron en signo">
-                <datalist id="opcionesQuiron1">
-                    <option v-for="signo in signosQuiron" :key="signo.id">{{signo}}</option> 
-                </datalist>
+             <select   v-model="dato1" style="width:175px;" class="select" >
+                <option disabled value=""  >__quirón en signo
+                </option>
+                <option v-for="signo in signos" :key="signo.id">{{signo}}
+                </option>
+            </select>
             <div class="cargar1">
                 <button  id="cargar1" type="submit">
                     cargar
@@ -26,10 +28,12 @@
  <!-------------casa---------------->     
         <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
 
-            <input list="opcionesQuiron2" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__quiron en casa">
-                <datalist id="opcionesQuiron2">
-                    <option v-for="casa in casasQuiron" :key="casa.id">{{casa}}</option>
-                </datalist>
+            <select   v-model="dato2" style="width:175px; " class="select" >
+                <option disabled value=""  >__quirón en casa
+                </option>
+                <option v-for="casa in casas" :key="casa.id" >{{casa}}
+                </option>
+            </select>
 
             <div class="cargar2">
                 <button  id="cargar2" type="submit">
@@ -62,10 +66,16 @@
                 <div class="aspectos2" >
                     <div class="aspectos6" >
                         <div v-for="(find,index) in dato3" :key="find.id">
-                            <input class="aspectos5unido" list="opcionesQuiron" v-model="find.value" :key="index" placeholder="__aspectos del quiron">
+                            <select class='aspectos5unido select'  v-model="find.value" :key="index">
+                                <option disabled value=""  >__aspectos de quirón
+                                </option>
+                                <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}
+                                </option>
+                            </select>
+                            <!--input class="aspectos5unido" list="opcionesQuiron" v-model="find.value" :key="index" placeholder="__aspectos del quiron">
                                 <datalist id="opcionesQuiron">
                                     <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
-                                </datalist>
+                                </datalist-->
                         </div>
                     </div>  
                     
@@ -260,7 +270,7 @@ data(){
         dato2:'',
         count:0,
         dato3:[],
-        casasQuiron:[
+        casas:[
           "quirón en casa 1",
             "quirón en casa 2",
             "quirón en casa 3",
@@ -274,7 +284,7 @@ data(){
             "quirón en casa 11",
             "quirón en casa 12"
         ],
-      signosQuiron:[
+      signos:[
          "quirón en aries",
             "quirón en tauro",
             "quirón en géminis",
