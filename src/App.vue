@@ -499,7 +499,7 @@ float:left;}
 @media screen and (max-width: 500px){
     
     .justify{
-        text-align:justify;
+        
     }
     .contenedorAspectosInvisibles{
         position:absolute;
@@ -542,7 +542,7 @@ float:left;}
     }
 
     .campo{
-        left:50px;
+        
         max-width:260px;
         width:80%;
         min-height: 170px;
