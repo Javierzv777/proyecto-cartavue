@@ -128,8 +128,8 @@
 
 
 <script>
-
-
+let sig=['aries','tauro','géminis','cáncer','leo','virgo','libra','scorpion','sagitario','capricornio','acuario','piscis' ]
+let signos=sig.map(x=>'lilith en '+x)
 
 export default {
   name: 'lilith',
@@ -288,20 +288,7 @@ data(){
             "lilith en casa 11",
             "lilith en casa 12"
         ],
-      signos:[
-         "lilith en aries",
-            "lilith en tauro",
-            "lilith en géminis",
-            "lilith en cáncer",
-            "lilith en leo",
-            "lilith en virgo",
-            "lilith en libra",
-            "lilith en escorpio",
-            "lilith en sagitario",
-            "lilith en capricornio",
-            "lilith en acuario",
-            "lilith en piscis"
-      ],
+      signos,
        aspectos:[
        ]         
     }

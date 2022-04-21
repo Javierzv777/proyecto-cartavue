@@ -1,69 +1,69 @@
 <template> 
   <div >
-<div v-if= "consulta.ascendente==true" id="bajarAscendente"></div>  
-<div v-if= "consulta.sol==true" id="bajarSol"></div>
-<div v-if= "consulta.luna==true" id="bajarLuna"></div>
-<div v-if= "consulta.mercurio==true" id="bajarMercurio"></div>
-<div v-if= "consulta.venus==true" id="bajarVenus"></div>
-<div v-if= "consulta.marte==true" id="bajarMarte"></div>
-<div v-if= "consulta.jupiter==true" id="bajarJupiter"></div>
-<div v-if= "consulta.saturno==true" id="bajarSaturno"></div>
-<div v-if= "consulta.urano==true" id="bajarUrano"></div>
-<div v-if= "consulta.neptuno==true" id="bajarNeptuno"></div>
-<div v-if= "consulta.pluton==true" id="bajarPluton"></div>
-<div v-if= "consulta.lilith==true" id="bajarLilith"></div>
-<div v-if= "consulta.quiron==true" id="bajarQuiron"></div>
-<div v-if= "consulta.ceres==true" id="bajarCeres"></div>
-<div v-if= "consulta.palas==true" id="bajarPalas"></div>
-<div v-if= "consulta.juno==true" id="bajarJuno"></div>
-<div v-if= "consulta.vesta==true" id="bajarVesta"></div>
-<div v-if= "consulta.nodos==true" id="bajarNodos"></div>
-<div v-if= "consulta.fortuna==true" id="bajarFortuna"></div>
-<div v-if= "consulta.infortunio==true" id="bajarInfortunio"></div>
-<div v-if= "consulta.retrogrados==true" id="bajarRetrogrados"></div>
-<div v-if= "consulta.influencias==true" id="bajarInfuencias"></div>
-<div v-if= "consulta.hemisferios==true" id="bajarHemisferios"></div>
-<div v-if= "consulta.nakshatra==true" id="bajarNakshatra"></div>
+<div v-if= "consul.ascendente==true" id="bajarAscendente"></div>  
+<div v-if= "consul.sol==true" id="bajarSol"></div>
+<div v-if= "consul.luna==true" id="bajarLuna"></div>
+<div v-if= "consul.mercurio==true" id="bajarMercurio"></div>
+<div v-if= "consul.venus==true" id="bajarVenus"></div>
+<div v-if= "consul.marte==true" id="bajarMarte"></div>
+<div v-if= "consul.jupiter==true" id="bajarJupiter"></div>
+<div v-if= "consul.saturno==true" id="bajarSaturno"></div>
+<div v-if= "consul.urano==true" id="bajarUrano"></div>
+<div v-if= "consul.neptuno==true" id="bajarNeptuno"></div>
+<div v-if= "consul.pluton==true" id="bajarPluton"></div>
+<div v-if= "consul.lilith==true" id="bajarLilith"></div>
+<div v-if= "consul.quiron==true" id="bajarQuiron"></div>
+<div v-if= "consul.ceres==true" id="bajarCeres"></div>
+<div v-if= "consul.palas==true" id="bajarPalas"></div>
+<div v-if= "consul.juno==true" id="bajarJuno"></div>
+<div v-if= "consul.vesta==true" id="bajarVesta"></div>
+<div v-if= "consul.nodos==true" id="bajarNodos"></div>
+<div v-if= "consul.fortuna==true" id="bajarFortuna"></div>
+<div v-if= "consul.infortunio==true" id="bajarInfortunio"></div>
+<div v-if= "consul.retrogrados==true" id="bajarRetrogrados"></div>
+<div v-if= "consul.influencias==true" id="bajarInfuencias"></div>
+<div v-if= "consul.hemisferios==true" id="bajarHemisferios"></div>
+<div v-if= "consul.nakshatra==true" id="bajarNakshatra"></div>
 
-    <h3 class="justify" >{{consulta.tipo1}}</h3>
-    <p class="justify" >{{consulta.descripcionTipo1}}</p>
-    <h3 class="justify"  style="margin-top:40px">{{consulta.nombre1}}</h3>
-    <p class="justify" >{{consulta.definicion1}}</p>
+    <h3 class="justify" >{{consul.tipo1}}</h3>
+    <p class="justify" >{{consul.descripcionTipo1}}</p>
+    <h3 class="justify"  style="margin-top:40px">{{consul.nombre1}}</h3>
+    <p class="justify" >{{consul.definicion1}}</p>
 
-    <h3 class="justify"  style="margin-top:40px">{{consulta.tipo2}}</h3>
-    <p class="justify" >{{consulta.descripcionTipo2}}</p>
-    <h3 class="justify" style="margin-top:40px">{{consulta.nombre2}}</h3>
-    <p class="justify" >{{consulta.definicion2}}</p>
+    <h3 class="justify"  style="margin-top:40px">{{consul.tipo2}}</h3>
+    <p class="justify" >{{consul.descripcionTipo2}}</p>
+    <h3 class="justify" style="margin-top:40px">{{consul.nombre2}}</h3>
+    <p class="justify" >{{consul.definicion2}}</p>
 
-    <div v-for="aspecto of consulta.aspectos" :key="aspecto.id">
+    <div v-for="aspecto of consul.aspectos" :key="aspecto.id">
         <h3 class="justify" >{{aspecto.nombre}}</h3>
         <p class="justify" >{{aspecto.definicion}}</p>
     </div>
-    <button v-if="consulta.ascendente==true && consulta.volver==true"  @click="volver('Ascendente')">volver</button>
-    <button v-if="consulta.medioCielo==true && consulta.volver==true"  @click="volver('Ascendente')">volver</button>
-    <button v-if="consulta.sol==true && consulta.volver==true" @click="volver('Sol')">volver</button>
-    <button v-if="consulta.luna==true && consulta.volver==true" @click="volver('Luna')">volver</button>
-    <button v-if="consulta.mercurio==true && consulta.volver==true" @click="volver('Mercurio')">volver</button>
-    <button v-if="consulta.venus==true && consulta.volver==true" @click="volver('Venus')">volver</button>
-    <button v-if="consulta.marte==true && consulta.volver==true" @click="volver('Marte')">volver</button>
-    <button v-if="consulta.jupiter==true && consulta.volver==true" @click="volver('Jupiter')">volver</button>
-    <button v-if="consulta.saturno==true && consulta.volver==true" @click="volver('Saturno')">volver</button>
-    <button v-if="consulta.urano==true && consulta.volver==true" @click="volver('Urano')">volver</button>
-    <button v-if="consulta.neptuno==true && consulta.volver==true" @click="volver('Neptuno')">volver</button>
-    <button v-if="consulta.pluton==true && consulta.volver==true" @click="volver('Pluton')">volver</button>
-    <button v-if="consulta.lilith==true && consulta.volver==true" @click="volver('Lilith')">volver</button>
-    <button v-if="consulta.quiron==true && consulta.volver==true" @click="volver('Quiron')">volver</button>
-    <button v-if="consulta.ceres==true && consulta.volver==true" @click="volver('Ceres')">volver</button>
-    <button v-if="consulta.palas==true && consulta.volver==true" @click="volver('Palas')">volver</button>
-    <button v-if="consulta.juno==true && consulta.volver==true" @click="volver('Juno')">volver</button>
-    <button v-if="consulta.vesta==true && consulta.volver==true" @click="volver('Vesta')">volver</button>
-    <button v-if="consulta.nodos==true && consulta.volver==true" @click="volver('Nodos')">volver</button>
-    <button v-if="consulta.fortuna==true && consulta.volver==true" @click="volver('Fortuna')">volver</button>
-    <button v-if="consulta.infortunio==true && consulta.volver==true" @click="volver('Infortunio')">volver</button>
-    <button v-if="consulta.retrogrados==true && consulta.volver==true" @click="volver('Retrogrados')">volver</button>
-    <button v-if="consulta.influencias==true && consulta.volver==true" @click="volver('influencias')">volver</button>
-    <button v-if="consulta.hemisferios==true && consulta.volver==true" @click="volver('Hemisferios')">volver</button>
-    <button v-if="consulta.nakshatra==true && consulta.volver==true" @click="volver('Nakshatras')">volver</button>
+    <button v-if="consul.ascendente==true && consul.volver==true"  @click="volver('Ascendente')">volver</button>
+    <button v-if="consul.medioCielo==true && consul.volver==true"  @click="volver('Ascendente')">volver</button>
+    <button v-if="consul.sol==true && consul.volver==true" @click="volver('Sol')">volver</button>
+    <button v-if="consul.luna==true && consul.volver==true" @click="volver('Luna')">volver</button>
+    <button v-if="consul.mercurio==true && consul.volver==true" @click="volver('Mercurio')">volver</button>
+    <button v-if="consul.venus==true && consul.volver==true" @click="volver('Venus')">volver</button>
+    <button v-if="consul.marte==true && consul.volver==true" @click="volver('Marte')">volver</button>
+    <button v-if="consul.jupiter==true && consul.volver==true" @click="volver('Jupiter')">volver</button>
+    <button v-if="consul.saturno==true && consul.volver==true" @click="volver('Saturno')">volver</button>
+    <button v-if="consul.urano==true && consul.volver==true" @click="volver('Urano')">volver</button>
+    <button v-if="consul.neptuno==true && consul.volver==true" @click="volver('Neptuno')">volver</button>
+    <button v-if="consul.pluton==true && consul.volver==true" @click="volver('Pluton')">volver</button>
+    <button v-if="consul.lilith==true && consul.volver==true" @click="volver('Lilith')">volver</button>
+    <button v-if="consul.quiron==true && consul.volver==true" @click="volver('Quiron')">volver</button>
+    <button v-if="consul.ceres==true && consul.volver==true" @click="volver('Ceres')">volver</button>
+    <button v-if="consul.palas==true && consul.volver==true" @click="volver('Palas')">volver</button>
+    <button v-if="consul.juno==true && consul.volver==true" @click="volver('Juno')">volver</button>
+    <button v-if="consul.vesta==true && consul.volver==true" @click="volver('Vesta')">volver</button>
+    <button v-if="consul.nodos==true && consul.volver==true" @click="volver('Nodos')">volver</button>
+    <button v-if="consul.fortuna==true && consul.volver==true" @click="volver('Fortuna')">volver</button>
+    <button v-if="consul.infortunio==true && consul.volver==true" @click="volver('Infortunio')">volver</button>
+    <button v-if="consul.retrogrados==true && consul.volver==true" @click="volver('Retrogrados')">volver</button>
+    <button v-if="consul.influencias==true && consul.volver==true" @click="volver('influencias')">volver</button>
+    <button v-if="consul.hemisferios==true && consul.volver==true" @click="volver('Hemisferios')">volver</button>
+    <button v-if="consul.nakshatra==true && consul.volver==true" @click="volver('Nakshatras')">volver</button>
     
 
 </div>
@@ -81,7 +81,7 @@ export default {
 
   },
 
-props:['consulta']
+props:['consul']
   
 }
 </script>
