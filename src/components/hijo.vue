@@ -170,7 +170,7 @@
 
         <div class="campo"   >
     <jupiter
-    @first="agregarDefinicion1"
+        @first="agregarDefinicion1"
         @second="agregarDefinicion2"
         @third="agregarDefinicion3"
         @deleteAspecto="limpiarAspecto"
@@ -723,7 +723,7 @@ methods:{
         this.$emit('clean');
         let flashName='Todas las definiciones han sido removidas correctamente';
         this.$emit('alertaFlashtwo',flashName);
-         this.consulta.forEach(element=>{
+         this.consul.forEach(element=>{
             element.volver=false;   
         });   
     },
@@ -732,7 +732,7 @@ methods:{
         let flashName='Todas las definiciones marcadas han sido cargadas al final del formulario';
         this.$emit('alertaFlash',flashName);   
         setTimeout(()=>{
-            this.consulta.forEach(element=>{
+            this.consul.forEach(element=>{
             element.volver=false; 
         });   
         },9000);
@@ -740,7 +740,7 @@ methods:{
     
 
     limpiarAspecto(def){
-        this.consulta.forEach(element => {
+        this.consul.forEach(element => {
             if(element.id==def.id){
                 let aspecto=element.aspectos.length;
                 element.aspectos.splice(aspecto-1,1);
@@ -751,7 +751,7 @@ methods:{
         this.$emit('alertaFlashtwo',flashName);   
     },
     limpiarAspectos(def){
-        this.consulta.forEach(element => {
+        this.consul.forEach(element => {
             if(element.id==def.id){
                element.aspectos=[];
                 if(element.definicion1==""&&element.definicion2==""&&element.aspectos==false){element.volver=false;} 
@@ -762,7 +762,7 @@ methods:{
     }
     ,
     limpiarDef1(def){
-        this.consulta.forEach(element => {
+        this.consul.forEach(element => {
             if(element.id==def.id){                                
                 element.tipo1="";
                 element.descripcionTipo1="";
@@ -776,7 +776,7 @@ methods:{
         this.$emit('alertaFlashtwo',flashName);           
     },
     limpiarDef2(def){
-        this.consulta.forEach(element => {
+        this.consul.forEach(element => {
             if(element.id==def.id){                                
                 element.tipo2="";
                 element.descripcionTipo2="";
@@ -790,7 +790,7 @@ methods:{
         this.$emit('alertaFlashtwo',flashName);   
     },
     agregarTipo1(){
-        /*this.consulta.forEach(element => {
+        /*this.consul.forEach(element => {
             if(element.id==def.id){ 
                 element.tipo1=def.nombre;
                 element.descripcionTipo1=def.definicion;
@@ -801,7 +801,7 @@ methods:{
         this.$emit('alertaFlash',flashName);   
     },
     agregarTipo2(){
-        /*this.consulta.forEach(element => {
+        /*this.consul.forEach(element => {
             if(element.id==def.id){ 
                 element.tipo2=def.nombre;
                 element.descripcionTipo2=def.definicion;
@@ -813,7 +813,7 @@ methods:{
     }
     ,
     agregarDefinicion1(def){
-      this.consulta.forEach(element => {
+      this.consul.forEach(element => {
           if(element.id==def.id){ 
               element.nombre1=def.nombre;
               element.definicion1=def.definicion;
@@ -823,7 +823,7 @@ methods:{
         
     },
     agregarDefinicion2(def){
-        this.consulta.forEach(element => {
+        this.consul.forEach(element => {
             if(element.id==def.id){ 
                 element.nombre2=def.nombre;
                 element.definicion2=def.definicion;
@@ -834,7 +834,7 @@ methods:{
     },
     agregarDefinicion3(def){
         
-        this.consulta.forEach(element => {
+        this.consul.forEach(element => {
             if(element.id==def.id){ 
                 element.aspectos=def.aspectos;
                 element.volver=true;  
