@@ -13,8 +13,11 @@
 </template>
 
 <script  >
+
 import padre from './components/padre.vue'
 import './estilos.css'
+
+
 
 export default {
   name: 'App',

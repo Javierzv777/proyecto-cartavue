@@ -194,7 +194,9 @@ export default {
         
         if(this.dato1!=""){
         let peticionTipo={nombre:'ascendente'};
+  
         await axios.post('/carta',peticionTipo).then((response)=>{
+        // await axios.post('/carta',peticionTipo).then((response)=>{
             let texto={
                 'id':2,
                 'nombre':'Ascendente en el signo',
