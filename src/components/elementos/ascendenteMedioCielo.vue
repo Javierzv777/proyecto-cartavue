@@ -69,12 +69,12 @@
 
                 <div class="aspectos2"  >
                     <div class="aspectos6" style="display:none;" >
-                        <div v-for="(find,index) in dato3" :key="find.id">
+                        <!-- <div v-for="(find,index) in dato3" :key="find.id">
                             <input class="aspectos5unido" list="opcionesLilith" v-model="find.value" :key="index" placeholder="__aspectos del lilith">
                             <datalist id="opcionesLilith">
                                 <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
                             </datalist>
-                        </div>
+                        </div> -->
                     </div>
                     <div  style="width:200px;" > 
                         <div class="cargarAspectos2" style="display:none;" >
@@ -118,28 +118,13 @@
 
 
 
-
-
-
-
-                     
-
-
-
-
-
-
-
-
-
-
 </template>
 
 
 
 <script>
-
-
+import axios from 'axios'
+import {signos} from './variables'
 
 export default {
   name: 'ascendenteMedioCielo',
@@ -147,34 +132,8 @@ export default {
     return{
       dato1:'',
         dato2:'',
-      ascendentes:[
-            "ascendente en aries",
-            "ascendente en tauro",
-            "ascendente en géminis",
-            "ascendente en cáncer",
-            "ascendente en leo",
-            "ascendente en virgo",
-            "ascendente en libra",
-            "ascendente en escorpio",
-            "ascendente en sagitario",
-            "ascendente en capricornio",
-            "ascendente en acuario",
-            "ascendente en piscis"
-            ],
-      medioCielos:[
-            "medio cielo en aries",
-            "medio cielo en tauro",
-            "medio cielo en géminis",
-            "medio cielo en cáncer",
-            "medio cielo en leo",
-            "medio cielo en virgo",
-            "medio cielo en libra",
-            "medio cielo en escorpio",
-            "medio cielo en sagitario",
-            "medio cielo en capricornio",
-            "medio cielo en acuario",
-            "medio cielo en piscis"
-      ]
+      ascendentes:signos.map(e=>`ascendente en ${e}`),
+      medioCielos:signos.map(e=>`medio cielo en ${e}`)
 
 
     }
@@ -194,9 +153,10 @@ export default {
         
         if(this.dato1!=""){
         let peticionTipo={nombre:'ascendente'};
-  
+ 
         await axios.post('/carta',peticionTipo).then((response)=>{
         // await axios.post('/carta',peticionTipo).then((response)=>{
+            console.log(response)
             let texto={
                 'id':2,
                 'nombre':'Ascendente en el signo',
@@ -234,7 +194,7 @@ export default {
         let peticion={
             nombre:this.dato2
         }
-         await axios.post('/carta',peticion).then((response)=>{
+         await axios.post('http://localhost:3000/carta',peticion).then((response)=>{
         let texto={
             'id':4,
             'nombre':this.dato2,
@@ -274,5 +234,5 @@ created: function(){
 }
 }
 
-import axios from 'axios'
+
 </script>

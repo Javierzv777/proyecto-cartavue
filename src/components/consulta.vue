@@ -81,7 +81,7 @@ export default {
 
   },
 
-props:['consul']
+  props:['consul']
   
 }
 </script>

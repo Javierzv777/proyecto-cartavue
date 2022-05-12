@@ -33,10 +33,10 @@
 
 
 
-           <input list="opcionesMedioCielo" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__medio Cielo">
+           <!-- <input list="opcionesMedioCielo" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__medio Cielo">
                 <datalist id="opcionesMedioCielo">
                     <option v-for="medioCielo in medioCielos" :key="medioCielo.id">{{medioCielo}}</option>       
-                </datalist>
+                </datalist> -->
 
 
 
@@ -118,7 +118,7 @@
 
 <script>
 
-
+import { nakshatras } from './variables';
 
 export default {
   name: 'nakshatra',
@@ -180,36 +180,7 @@ data(){
     return{
         dato1:'',
         
-        nakshatras:[
-            "ashwini",
-            "bharani",
-            "krittika",
-            "rohini",
-            "mrigashira",
-            "ardra",
-            "punarvasu",
-            "pushya",
-            "ashlesha",
-            "magha",
-            "purva phalguni",
-            "uttara phalguni",
-            "hasta",
-            "chitra",
-            "swati",
-            "visakha",
-            "anuradha",
-            "Jyeshtha",
-            "mula",
-            "purva ashadha",
-            "uttara ashadha",
-            "abhijit",
-            "shravana",
-            "dhanishta",
-            "shatabhisha",
-            "purva bhadrapada",
-            "uttara bhadrapada",
-            "revati"
-        ]
+        nakshatras
                 
     }
 },

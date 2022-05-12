@@ -38,16 +38,16 @@
         @alertaFlashtwo="segundoFlash"
         @bajar='bajar'/>
         
-    
+           <molde
+        @volver="volver"
+        id="" style="position:relative; margin-top:50px;"
+        v-for="components in componentsArray" 
+       :key="components.id"
+        :component="components" 
+   />
       
 
-        <div  style='clear:both; margin-top:30px;'>
-        <capitulos         
-        @deleteDefinicion1="limpiarDef1"
-        @first="agregarDefinicion1"
-        ref="childComponent"
-        />
-        </div>
+ 
         
           <br>
   
@@ -83,22 +83,24 @@
 <script>
 import consulta from './consulta.vue'
 import ChildComponents from './childComponents.vue'  
-import capitulos from './capitulos.vue'
 import consul from './consult.js'
+import molde from './elementos/molde.vue'
+import {componentsArray} from './elementos/componentsHijos'
 
 export default {
   name: 'hijo',
   components: {
     consulta,
-    capitulos,
-    ChildComponents
+    ChildComponents,
+    molde
 },
   props: {
     
   },
   data(){
       return{
-          consul
+          consul,
+          componentsArray
       };
   },
  

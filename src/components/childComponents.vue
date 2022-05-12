@@ -552,16 +552,13 @@
         <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Nakshatra')">deslizar al campo cargado</button>           
         </div>
     </div>
-  
-
-        
-     
-  
-
-
-
-
-
+         <div  style='clear:both; margin-top:30px;'>
+        <capitulos         
+        @deleteDefinicion1="limpiarDef1"
+        @first="agregarDefinicion1"
+        ref="childComponent"
+        />
+        </div>
 
 
   </div>
@@ -570,65 +567,13 @@
 
 
 <script>
-import sol from './elementos/sol.vue'
-import luna from './elementos/luna.vue'
-import mercurio from './elementos/mercurio.vue'
-import venus from './elementos/venus.vue'
-import marte from './elementos/marte.vue'
-import jupiter from './elementos/jupiter.vue'
-import saturno from './elementos/saturno.vue'
-import urano from './elementos/urano.vue'
-import neptuno from './elementos/neptuno.vue'
-import pluton from './elementos/pluton.vue'
-import lilith from './elementos/lilith.vue'
-import quiron from './elementos/quiron.vue'
-import ceres from './elementos/ceres.vue'
-import palas from './elementos/palas.vue'
-import juno from './elementos/juno.vue'
-import vesta from './elementos/vesta.vue'
-import nodoNorte from './elementos/nodoNorte.vue'
-import parteFortuna from './elementos/parteFortuna.vue'
-import parteInfortunio from './elementos/parteInfortunio.vue'
-import ascendenteMedioCielo from './elementos/ascendenteMedioCielo.vue'
-import planetasRetrogrados from './elementos/planetasRetrogrados.vue'
-import hemisferio from './elementos/hemisferio.vue'
-import nakshatra from './elementos/nakshatra.vue'
-import influencias from './elementos/influencias.vue'
+
 import consul from './consult.js'  
-import {methodsChildComponents} from './variables.js'
-let methods=methodsChildComponents;
+import {methodsChildComponents as methods} from './methods.js'
+import {components} from './elementos/componentsHijos' //importa todos los componentes
 
 export default {
-  components: { 
-    
-    sol, 
-    luna, 
-    mercurio, 
-    venus,
-    marte,
-    jupiter,
-    saturno,
-    urano,
-    neptuno,
-    pluton,
-    lilith,
-    quiron,
-    ceres,
-    palas,
-    juno,
-    vesta,
-    nodoNorte,
-    nakshatra,
-    parteFortuna,
-    parteInfortunio,
-    planetasRetrogrados,
-    ascendenteMedioCielo,
-    hemisferio,
-    influencias
-    
- 
-        
-  },
+components,
   props: {
     
   },
@@ -638,7 +583,7 @@ export default {
       };
   },
  
-methods
+    methods //métodos vienen de methodos.js
 }
 
 </script>
