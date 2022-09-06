@@ -38,13 +38,7 @@
         @alertaFlashtwo="segundoFlash"
         @bajar='bajar'/>
         
-           <molde
-        @volver="volver"
-        id="" style="position:relative; margin-top:50px;"
-        v-for="components in componentsArray" 
-       :key="components.id"
-        :component="components" 
-   />
+        
       
 
  
@@ -84,87 +78,88 @@
 import consulta from './consulta.vue'
 import ChildComponents from './childComponents.vue'  
 import consul from './consult.js'
-import molde from './elementos/molde.vue'
-import {componentsArray} from './elementos/componentsHijos'
+// import molde from './elementos/molde.vue'
 
-export default {
-  name: 'hijo',
-  components: {
-    consulta,
-    ChildComponents,
-    molde
-},
-  props: {
-    
-  },
-  data(){
-      return{
-          consul,
-          componentsArray
-      };
-  },
+
+    export default {
+        name: 'hijo',
+        components: {
+            consulta,
+            ChildComponents,
+            // molde
+    },
+    props: {
+        
+      },
+    data(){
+        return{
+            consul,
+            //   componentsArray
+        };
+    },
  
-methods:{
-    subirYLimpiar(){
-        this.limpiarCarta();
-        const el=document.getElementById('subirAscendente');
-        if(el){
-            el.scrollIntoView();
+    methods:{
+        subirYLimpiar(){
+            this.limpiarCarta();
+            const el=document.getElementById('subirAscendente');
+            if(el){
+            
+                el.scrollIntoView();
+            }
+        },
+        subir(){
+            const el=document.getElementById('subirAscendente');
+            if(el){
+                el.scrollIntoView();
+            }
+        },
+        bajar(ref){
+            const baj=document.getElementById(`bajar${ref}`);
+            if(baj){
+                baj.scrollIntoView();
+            }else {let flashName='Aún no hay ninguna definición que mostrar';
+            this.$emit('alertaFlashtwo',flashName);
+            }
+        },
+        volver(ref){
+            const sub=document.getElementById(`subir${ref}`);
+            if(sub){
+                sub.scrollIntoView();
+            }
         }
-    },
-    subir(){
-        const el=document.getElementById('subirAscendente');
-        if(el){
-            el.scrollIntoView();
-        }
-    },
-     bajar(ref){
-        const baj=document.getElementById(`bajar${ref}`);
-        if(baj){
-            baj.scrollIntoView();
-        }else {let flashName='Aún no hay ninguna definición que mostrar';
-        this.$emit('alertaFlashtwo',flashName);
-        }
-    },
-     volver(ref){
-        const sub=document.getElementById(`subir${ref}`);
-        if(sub){
-            sub.scrollIntoView();
-        }
-    }
-    ,
-    limpiarCarta:function(){ 
-        this.$emit('clean');
-        let flashName='Todas las definiciones han sido removidas correctamente';
-        this.$emit('alertaFlashtwo',flashName);
-         this.consul.forEach(element=>{
-            element.volver=false;   
-        });   
-    },
-    cargarCarta: function() {
-        this.$emit('update');
-        let flashName='Todas las definiciones marcadas han sido cargadas al final del formulario';
-        this.$emit('alertaFlash',flashName);   
-        setTimeout(()=>{
+        ,
+        limpiarCarta:function(){ 
+            this.$emit('clean');
+            let flashName='Todas las definiciones han sido removidas correctamente';
+            this.$emit('alertaFlashtwo',flashName);
             this.consul.forEach(element=>{
-            element.volver=false; 
-        });   
-        },9000);
-    },
-    primerFlash(ref){
-         let flashName=ref;
-        this.$emit('alertaFlash',flashName);  
-    },
-    segundoFlash(ref){
-         let flashName=ref;
-        this.$emit('alertaFlashtwo',flashName);  
-    }
+                element.volver=false;   
+            });   
+        },
+        cargarCarta: function() {
+            this.$emit('update');
+            let flashName='Todas las definiciones marcadas han sido cargadas al final del formulario';
+            this.$emit('alertaFlash',flashName);   
+            setTimeout(()=>{
+                this.consul.forEach(element=>{
+                element.volver=false; 
+            });   
+            },9000);
+        },
+        primerFlash(ref){
+            let flashName=ref;
+            this.$emit('alertaFlash',flashName);  
+        },
+        segundoFlash(ref){
+            let flashName=ref;
+            this.$emit('alertaFlashtwo',flashName);  
+        }
+        
+
+
+
     
-
-
-
- 
-}
+    }
 }
 
 </script>

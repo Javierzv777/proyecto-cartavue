@@ -2,7 +2,25 @@
   <div  style="clear: both;">
     
      
-   
+        <molde
+               @first="agregarDefinicion1"
+        @second="agregarDefinicion2"
+        @third="agregarDefinicion3"
+        @deleteAspecto="limpiarAspecto"
+        @deleteAspectos="limpiarAspectos"         
+        @deleteDefinicion1="limpiarDef1"
+        @deleteDefinicion2="limpiarDef2"
+        @tipo1="agregarTipo1"
+        @tipo2="agregarTipo2"
+        ref="childComponent"
+      
+
+        
+        id="" style="position:relative; margin-top:50px;"
+        v-for="components in componentsArray" 
+       :key="components.id"
+        :component="components" 
+   />
 
     <h1 style="margin-top:80px;" id='subirAscendente'> Ascendente y Medio Cielo</h1>
         <div class="campo"  style="" >
@@ -571,15 +589,20 @@
 import consul from './consult.js'  
 import {methodsChildComponents as methods} from './methods.js'
 import {components} from './elementos/componentsHijos' //importa todos los componentes
+import {componentsArray} from './elementos/componentsHijos'
+
 
 export default {
 components,
+
+
   props: {
     
   },
   data(){
       return{
-          consul
+          consul,
+          componentsArray
       };
   },
  

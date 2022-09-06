@@ -1,4 +1,4 @@
-export const nakshatras=[
+export const nakshatras = [
     "ashwini",
     "bharani",
     "krittika",
@@ -29,7 +29,41 @@ export const nakshatras=[
     "revati"
 ]
 
-export const signos=[
+export const signos = [
     "aries", 'tauro', 'géminis', 'cáncer', 'leo', 'virgo', 'libra', 'scorpio', 'sagitario', 'capricornio', 'acuario', 'piscis'
 ]
 
+export let aspectos = [
+    " conjunción ",
+    " trígono ",
+    " sextil ",
+    " cuadratura ",
+    " oposición "
+]
+export let astrosArray = [
+    "sol",
+    "luna",
+    "mercurio",
+    "venus",
+    "marte",
+    "júpiter",
+    "saturno",
+    "urano",
+    "neptuno",
+    "plutón",
+    "lilith",
+    "quirón",
+    "ceres",
+    "palas",
+    "juno",
+    "vesta",
+    "acendente",
+    "medio cielo",
+    "nodo norte"
+
+] 
+// let pli=astrosArray.slice(1)
+// astrosArray=pli
+// console.log('astrosArray',astrosArray)
+// pli=astrosArray.slice(1)
+// console.log(pli)
