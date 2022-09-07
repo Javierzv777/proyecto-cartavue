@@ -1,121 +1,126 @@
+
+
 <template>
-    <div class="principal">
+    <div>
+
         <div style="clear:both;">
-            <h1 id="subirSol">Sol</h1>
+            <h1 :id="idDinamico">{{this.convertir(component.name)}}</h1>
         </div>
-
         <div class="campo">
-            <button class="cargarCampo" @click="cargarCampo">cargar campo</button>
-            <div class="contenedorLuna">
-                <!---------signo----------------->
-
-                <form class="signo" action v-on:submit.prevent="cargarInput1()" method="POST">
-                    <select v-model="dato1" style="width:175px;" class="select">
-                        <option disabled value>__{{ component.name }} en signo</option>
-
-                        <option
-                            v-for="signo in signos"
-                            :key="signo.id"
-                        >{{ `${component.name} en ${signo}` }}</option>
-                    </select>
-                    <!--input list="opciones1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__sol en signo">
-                <datalist id="opciones1">
-                    <option v-for="signo in signos" :key="signo.id">{{signo}}</option> 
-                    </datalist-->
-                    <div class="cargar1">
-                        <button id="cargar1" type="submit">cargar</button>
-                        <button id="borrar1" @click.prevent="deleteInput1()">borrar</button>
-                    </div>
-                </form>
-                <!-------------casa---------------->
-                <form class="casa" v-on:submit.prevent="cargarInput2()" action method="POST">
-                    <select v-model="dato2" style="width:175px; " class="select">
-                        <option disabled value>__{{ component.name }} en casa</option>
-                        <option
-                            v-for="(signo, index) in signos"
-                            :key="signo.id"
-                        >{{ `${component.name} en casa ${index + 1}` }}</option>
-                    </select>
-                    <!--input list="opciones2" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__sol en casa">
-                    <datalist id="opciones2">
-                        <option v-for="casa in casas" :key="casa.id">{{casa}}</option>
-                    </datalist-->
-                    <div class="cargar2">
-                        <button id="cargar2" type="submit">cargar</button>
-                        <button id="borrar2" @click.prevent="deleteInput2()">borrar</button>
-                    </div>
-                </form>
-
-                <!------------aspecto------------->
-                <form class="aspectos" v-on:submit.prevent="cargarInput3()" action>
-                    <div class="botonAspec">
-                        <button @click.prevent="addAspecto">agregar</button>
-                        <button @click.prevent="deleteAspecto">borrar</button>
-                    </div>
-
-                    <div class="aspectos2">
-                        <div class="aspectos6">
-                            <div v-for="(find,index) in dato3" :key="find.id">
-                                <select class="aspectos5 select" v-model="find.value" :key="index">
-                                    <option
-                                        v-if="component.name === 'luna'"
-                                        disabled
-                                        value
-                                    >__aspectos de la</option>
-                                    <option
-                                        v-else-if="component.name === 'sol'"
-                                        disabled
-                                        value
-                                    >__aspectos del</option>
-                                    <option v-else disabled value>__aspectos de</option>
-                                    <option
-                                        v-for="aspecto in aspectos"
-                                        :key="aspecto.id"
-                                    >{{ aspecto }}</option>
-                                </select>
-                                <!--input class='aspectos5' list="opcionesPluton" v-model="find.value" :key="index" placeholder="__aspectos del" >
-                            <datalist id="opcionesPluton">
-                                <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
-                                </datalist-->
+    
+            <div class="principal">
+                <button class="cargarCampo" @click="cargarCampo">cargar campo</button>
+                <div class="contenedorLuna">
+                    <!---------signo----------------->
+    
+                    <form class="signo" action v-on:submit.prevent="cargarInput1()" method="POST">
+                        <select v-model="dato1" style="width:175px;" class="select">
+                            <option disabled value>__{{ component.name }} en signo</option>
+    
+                            <option
+                                v-for="signo in signos"
+                                :key="signo.id"
+                            >{{ `${component.name} en ${signo}` }}</option>
+                        </select>
+                        <!--input list="opciones1" type="text" v-model="dato1" name="nombre" id="imput1" placeholder="__sol en signo">
+                    <datalist id="opciones1">
+                        <option v-for="signo in signos" :key="signo.id">{{signo}}</option> 
+                        </datalist-->
+                        <div class="cargar1">
+                            <button id="cargar1" type="submit">cargar</button>
+                            <button id="borrar1" @click.prevent="deleteInput1()">borrar</button>
+                        </div>
+                    </form>
+                    <!-------------casa---------------->
+                    <form class="casa" v-on:submit.prevent="cargarInput2()" action method="POST">
+                        <select v-model="dato2" style="width:175px; " class="select">
+                            <option disabled value>__{{ component.name }} en casa</option>
+                            <option
+                                v-for="(signo, index) in signos"
+                                :key="signo.id"
+                            >{{ `${component.name} en casa ${index + 1}` }}</option>
+                        </select>
+                        <!--input list="opciones2" type="text" v-model="dato2" name="nombre" id="imput2" placeholder="__sol en casa">
+                        <datalist id="opciones2">
+                            <option v-for="casa in casas" :key="casa.id">{{casa}}</option>
+                        </datalist-->
+                        <div class="cargar2">
+                            <button id="cargar2" type="submit">cargar</button>
+                            <button id="borrar2" @click.prevent="deleteInput2()">borrar</button>
+                        </div>
+                    </form>
+    
+                    <!------------aspecto------------->
+                    <form class="aspectos" v-on:submit.prevent="cargarInput3()" action>
+                        <div class="botonAspec">
+                            <button @click.prevent="addAspecto">agregar</button>
+                            <button @click.prevent="deleteAspecto">borrar</button>
+                        </div>
+    
+                        <div class="aspectos2">
+                            <div class="aspectos6">
+                                <div v-for="(find,index) in dato3" :key="find.id">
+                                    <select class="aspectos5 select" v-model="find.value" :key="index">
+                                        <option
+                                            v-if="component.name === 'luna'"
+                                            disabled
+                                            value
+                                        >__aspectos de la</option>
+                                        <option
+                                            v-else-if="component.name === 'sol'"
+                                            disabled
+                                            value
+                                        >__aspectos del</option>
+                                        <option v-else disabled value>__aspectos de</option>
+                                        <option
+                                            v-for="aspecto in aspectos"
+                                            :key="aspecto.id"
+                                        >{{ aspecto }}</option>
+                                    </select>
+                                    <!--input class='aspectos5' list="opcionesPluton" v-model="find.value" :key="index" placeholder="__aspectos del" >
+                                <datalist id="opcionesPluton">
+                                    <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
+                                    </datalist-->
+                                </div>
+                            </div>
+                            <div class="aspectos3">
+                                <div v-for="(find,index) in dato4" :key="find.id">
+                                    <select class="aspectos4 select" v-model="find.value" :key="index">
+                                        <option disabled value>__{{ component.name }}</option>
+                                        <option
+                                            v-for="aspecto in aspectos2"
+                                            :key="aspecto.id"
+                                        >{{ aspecto }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="cargarAspectos">
+                                <div class="cargarAspectos2">
+                                    <button type="submit">cargar aspectos</button>
+                                </div>
+    
+                                <div class="cargarCampo2">
+                                    <button @click="cargarCampo">cargar campo</button>
+                                </div>
+    
+                                <div class="limpiarCamp2">
+                                    <button id="limpiar" v-on:click="limpiarCampo">limpiar campo</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="aspectos3">
-                            <div v-for="(find,index) in dato4" :key="find.id">
-                                <select class="aspectos4 select" v-model="find.value" :key="index">
-                                    <option disabled value>__{{ component.name }}</option>
-                                    <option
-                                        v-for="aspecto in aspectos2"
-                                        :key="aspecto.id"
-                                    >{{ aspecto }}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="cargarAspectos">
-                            <div class="cargarAspectos2">
-                                <button type="submit">cargar aspectos</button>
-                            </div>
-
-                            <div class="cargarCampo2">
-                                <button @click="cargarCampo">cargar campo</button>
-                            </div>
-
-                            <div class="limpiarCamp2">
-                                <button id="limpiar" v-on:click="limpiarCampo">limpiar campo</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <!---------------------------------------------------------------------------------------------------->
+                    </form>
+                    <!---------------------------------------------------------------------------------------------------->
+                </div>
+                <div class="limpiarCamp">
+                    <button id="limpiar" v-on:click="limpiarCampo">limpiar campo</button>
+                </div>
             </div>
-            <div class="limpiarCamp">
-                <button id="limpiar" v-on:click="limpiarCampo">limpiar campo</button>
-            </div>
+    
         </div>
-
         <div>
             <button
                 style="float:right; margin-right:60px; margin-top:5px; margin-bottom:20px;"
-                @click="bajar('Sol')"
+                @click="bajar(convertir(component.name))"
             >deslizar al campo cargado</button>
         </div>
     </div>
@@ -128,10 +133,20 @@
 
 import { signos } from './variables';
 import { aspectos, astrosArray } from './variables'
+import {methodsChildComponents as methods} from '../methods.js'
+
 export default {
     name: 'molde',
     props: ['component'],
-    methods: {
+    methods: {...methods,
+        bajar(ref){
+            const baj=document.getElementById(`bajar${ref}`);
+            if(baj){
+                baj.scrollIntoView();
+            }else {let flashName='Aún no hay ninguna definición que mostrar';
+            this.$emit('alertaFlashtwo',flashName);
+            }
+        },
 
 
         shiftAspecto() {
@@ -294,14 +309,17 @@ export default {
             this.deleteInput2();
             this.deleteAspectos();
             this.addAspecto();
-        }
+        },
+        convertir(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        } 
 
 
     },
 
     data() {
         return {
-
+            idDinamico: `subir${this.convertir(this.component.name)}`,
             dato1: '',
             dato2: '',
             count: 0,

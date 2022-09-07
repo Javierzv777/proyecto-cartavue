@@ -122,7 +122,8 @@ width: 470px;}
 .cargarCampo{float:left;
  display:inline-block;
     }
-.principal{display:inline-block;
+.principal{
+    display:inline-block;
 text-align:left;
 }
 .limpiarCamp{
@@ -618,7 +619,7 @@ float:left;}
 .casa{
     
    float:left;
-   margin-right:;
+   /* margin-right; */
     margin-left: 40px;
     margin-top:45px;
 
