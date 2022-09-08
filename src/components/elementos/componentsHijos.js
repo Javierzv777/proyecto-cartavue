@@ -1,20 +1,4 @@
 import capitulos from './capitulos.vue'
-import sol from './sol'
-import luna from './luna.vue'
-import mercurio from './mercurio.vue'
-import venus from './venus.vue'
-import marte from './marte.vue'
-import jupiter from './jupiter.vue'
-import saturno from './saturno.vue'
-import urano from './urano.vue'
-import neptuno from './neptuno.vue'
-import pluton from './pluton.vue'
-import lilith from './lilith.vue'
-import quiron from './quiron.vue'
-import ceres from './ceres.vue'
-import palas from './palas.vue'
-import juno from './juno.vue'
-import vesta from './vesta.vue'
 import nodoNorte from './nodoNorte.vue'
 import parteFortuna from './parteFortuna.vue'
 import parteInfortunio from './parteInfortunio.vue'
@@ -28,22 +12,6 @@ import molde from './molde.vue'
 export const components = {
   molde,
   capitulos,
-  sol,
-  luna,
-  mercurio,
-  venus,
-  marte,
-  jupiter,
-  saturno,
-  urano,
-  neptuno,
-  pluton,
-  lilith,
-  quiron,
-  ceres,
-  palas,
-  juno,
-  vesta,
   nodoNorte,
   nakshatra,
   parteFortuna,
@@ -200,76 +168,76 @@ export const componentsArray = [
       molde4: true
     }
   },
-  {
-    name:"nodoNorte",
-    data: {
-      molde1: true,
-      molde2: true,
-      molde3: true,
-      molde4: true
-    }
-  },
-  {
-    name:"nakshatra",
-    data: {
-      molde1: true,
-      molde2: true,
-      molde3: true,
-      molde4: true
-    }
-  },
-  {
-    name:"parteFortuna",
-    data: {
-      molde1: true,
-      molde2: true,
-      molde3: true,
-      molde4: true
-    }
-  },
-  {
-    name:"parteInfortunio",
-    data: {
-      molde1: true,
-      molde2: true,
-      molde3: true,
-      molde4: true
-    }
-  },
-  {
-    name:"planetasRetrogrados",
-    data: {
-      molde1: true,
-      molde2: true,
-      molde3: true,
-      molde4: true
-    }
-  },
-  {
-    name:"ascendenteMedioCielo",
-    data: {
-      molde1: true,
-      molde2: true,
-      molde3: true,
-      molde4: true
-    }
-  },
-  {
-    name:"hemisferio",
-    data: {
-      molde1: true,
-      molde2: true,
-      molde3: true,
-      molde4: true
-    }
-  },
-  {
-    name:"influencias",
-    data: {
-      molde1: true,
-      molde2: true,
-      molde3: true,
-      molde4: true
-    }
-  },
+  // {
+  //   name:"nodoNorte",
+  //   data: {
+  //     molde1: true,
+  //     molde2: true,
+  //     molde3: true,
+  //     molde4: true
+  //   }
+  // },
+  // {
+  //   name:"nakshatra",
+  //   data: {
+  //     molde1: true,
+  //     molde2: true,
+  //     molde3: true,
+  //     molde4: true
+  //   }
+  // },
+  // {
+  //   name:"parteFortuna",
+  //   data: {
+  //     molde1: true,
+  //     molde2: true,
+  //     molde3: true,
+  //     molde4: true
+  //   }
+  // },
+  // {
+  //   name:"parteInfortunio",
+  //   data: {
+  //     molde1: true,
+  //     molde2: true,
+  //     molde3: true,
+  //     molde4: true
+  //   }
+  // },
+  // {
+  //   name:"planetasRetrogrados",
+  //   data: {
+  //     molde1: true,
+  //     molde2: true,
+  //     molde3: true,
+  //     molde4: true
+  //   }
+  // },
+  // {
+  //   name:"ascendenteMedioCielo",
+  //   data: {
+  //     molde1: true,
+  //     molde2: true,
+  //     molde3: true,
+  //     molde4: true
+  //   }
+  // },
+  // {
+  //   name:"hemisferio",
+  //   data: {
+  //     molde1: true,
+  //     molde2: true,
+  //     molde3: true,
+  //     molde4: true
+  //   }
+  // },
+  // {
+  //   name:"influencias",
+  //   data: {
+  //     molde1: true,
+  //     molde2: true,
+  //     molde3: true,
+  //     molde4: true
+  //   }
+  // },
 ]
