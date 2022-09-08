@@ -22,6 +22,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'ascendente':true,
+    'name':'ascendente',
+    'status':true,
     'volver':false
     },
     {'id':3,
@@ -46,6 +48,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'medioCielo':true,
+    'name':'medioCielo',
+    'status':true,
     'volver':false
     },
     {'id':5,
@@ -70,6 +74,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'sol':true,
+    'name':'sol',
+    'status':true,
     'volver':false
     
     },
@@ -95,6 +101,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'luna':true,
+    'name':'luna',
+    'status':true,
     'volver':false
     },
     {'id':9,
@@ -119,6 +127,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'mercurio':true,
+    'name':'mercurio',
+    'status':true,
     'volver':false
     },
     {'id':11,
@@ -143,6 +153,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'venus':true,
+    'name':'venus',
+    'status':true,
     'volver':false
     },
     {'id':13,
@@ -167,6 +179,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'marte':true,
+    'name':'marte',
+    'status':true,
     'volver':false
     },
     {'id':15,
@@ -191,6 +205,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'jupiter':true,
+    'name':'jupiter',
+    'status':true,
     'volver':false
     },
     {'id':17,
@@ -215,6 +231,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'saturno':true,
+    'name':'saturno',
+    'status':true,
     'volver':false
     },
     {'id':19,
@@ -239,6 +257,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'urano':true,
+    'name':'urano',
+    'status':true,
     'volver':false
     },
     {'id':21,
@@ -263,6 +283,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'neptuno':true,
+    'name':'neptuno',
+    'status':true,
     'volver':false
     },
     {'id':23,
@@ -287,6 +309,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'pluton':true,
+    'name':'pluton',
+    'status':true,
     'volver':false
     },{
     'id':25,
@@ -312,6 +336,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'lilith':true,
+    'name':'lilith',
+    'status':true,
     'volver':false
     },
     {'id':27,
@@ -336,6 +362,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'quiron':true,
+    'name':'quiron',
+    'status':true,
     'volver':false
     },
     {'id':29,
@@ -360,6 +388,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'ceres':true,
+    'name':'ceres',
+    'status':true,
     'volver':false
     },
     {'id':31,
@@ -384,6 +414,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'palas':true,
+    'name':'palas',
+    'status':true,
     'volver':false
     },
     {'id':33,
@@ -408,6 +440,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'juno':true,
+    'name':'juno',
+    'status':true,
     'volver':false
     },
     {'id':35,
@@ -432,6 +466,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'vesta':true,
+    'name':'vesta',
+    'status':true,
     'volver':false
     },
     {'id':37,
@@ -456,6 +492,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'nodos':true,
+    'name':'nodos',
+    'status':true,
     'volver':false
     },
     {'id':39,
@@ -480,6 +518,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'fortuna':true,
+    'name':'fortuna',
+    'status':true,
     'volver':false
     },
     {'id':41,
@@ -504,6 +544,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'infortunio':true,
+    'name':'infortunio',
+    'status':true,
     'volver':false
     },
     {'id':43,
@@ -528,6 +570,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'retrogados':true,
+    'name':'retrogados',
+    'status':true,
     'volver':false
     },
     {'id':45,
@@ -552,6 +596,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'influencias':true,
+    'name':'influencias',
+    'status':true,
     'volver':false
     },
     {'id':47,
@@ -576,6 +622,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'hemisferios':true,
+    'name':'hemisferios',
+    'status':true,
     'volver':false
     },
     {
@@ -602,6 +650,8 @@ var consul=[{
     'definicion2':'',
     'aspectos':[],
     'nakshatra':true,
+    'name':'nakshatra',
+    'status':true,
     'volver':false
     }
     ];
