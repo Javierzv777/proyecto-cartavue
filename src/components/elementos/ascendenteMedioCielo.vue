@@ -8,10 +8,11 @@
  <!---------signo----------------->               
        
         <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
-            <select   v-model="dato1" style="width:175px;" class="select" >
-                <option disabled value=""  >__palas en signo
+
+            <select   v-model="dato1" style="width:175px;" class="select">
+                <option disabled value=""  >__ascendente
                 </option>
-                <option v-for="signo in signos" :key="signo.id">{{signo}}
+                <option v-for="ascendente in ascendentes" :key="ascendente.id">{{ascendente}}
                 </option>
             </select>
 
@@ -28,12 +29,13 @@
  <!-------------casa---------------->     
         <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
 
-            <select   v-model="dato2" style="width:175px; " class="select" >
-                <option disabled value=""  >__palas en casa
+             <select   v-model="dato2" style="width:175px;" class="select" >
+                <option disabled value=""  >__medio cielo
                 </option>
-                <option v-for="casa in casas" :key="casa.id" >{{casa}}
+                <option v-for="medioCielo in medioCielos" :key="medioCielo.id">{{medioCielo}}       
                 </option>
             </select>
+          
 
             <div class="cargar2">
                 <button  id="cargar2" type="submit">
@@ -67,12 +69,12 @@
 
                 <div class="aspectos2"  >
                     <div class="aspectos6" style="display:none;" >
-                        <div v-for="(find,index) in dato3" :key="find.id">
-                            <input list="opcionesPalas" v-model="find.value" :key="index" placeholder="__aspectos del palas">
-                                <datalist id="opcionesPalas">
-                                    <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
-                                </datalist>
-                        </div>
+                        <!-- <div v-for="(find,index) in dato3" :key="find.id">
+                            <input class="aspectos5unido" list="opcionesLilith" v-model="find.value" :key="index" placeholder="__aspectos del lilith">
+                            <datalist id="opcionesLilith">
+                                <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
+                            </datalist>
+                        </div> -->
                     </div>
                     <div  style="width:200px;" > 
                         <div class="cargarAspectos2" style="display:none;" >
@@ -116,25 +118,27 @@
 
 
 
-
-
-
-
-
-
-
-
- 
 </template>
 
 
 
 <script>
-
-
+import axios from 'axios'
+import {signos} from './variables'
 
 export default {
-  name: 'palas',
+  name: 'ascendenteMedioCielo',
+  data(){
+    return{
+      dato1:'',
+        dato2:'',
+      ascendentes:signos.map(e=>`ascendente en ${e}`),
+      medioCielos:signos.map(e=>`medio cielo en ${e}`)
+
+
+    }
+
+ },
   methods:{
     
 
@@ -142,17 +146,20 @@ export default {
     cargarCampo(){
         this.cargarInput1();
         this.cargarInput2();
-        this.cargarInput3();
+        
     }
     ,
     async cargarInput1(){
         
         if(this.dato1!=""){
-        let peticionTipo={nombre:'palas_ensigno'};
+        let peticionTipo={nombre:'ascendente'};
+ 
         await axios.post('/carta',peticionTipo).then((response)=>{
+        // await axios.post('/carta',peticionTipo).then((response)=>{
+            console.log(response)
             let texto={
-                'id':32,
-                'nombre':'palas en el signo',
+                'id':2,
+                'nombre':'Ascendente en el signo',
                 'definicion': response.data
             }
             
@@ -163,7 +170,7 @@ export default {
         }
          await axios.post('/carta',peticion).then((response)=>{
         let texto={
-            'id':32,
+            'id':2,
             'nombre':this.dato1,
             'definicion': response.data
         }
@@ -174,155 +181,58 @@ export default {
     },
     async cargarInput2(){
         if(this.dato2!=""){
-        let peticionTipo={nombre:'palas_encasa'};
+        let peticionTipo={nombre:'medio_cielo'};
         await axios.post('/carta',peticionTipo).then((response)=>{
             let texto={
-                'id':32,
-                'nombre':'palas en la Casa',
+                'id':4,
+                'nombre':'Medio Cielo en el signo',
                 'definicion': response.data
             }
             
-            this.$emit('tipo2',texto);
+            this.$emit('tipo1',texto);
            })
         let peticion={
             nombre:this.dato2
         }
-         await axios.post('/carta',peticion).then((response)=>{
+         await axios.post('http://localhost:3000/carta',peticion).then((response)=>{
         let texto={
-            'id':32,
+            'id':4,
             'nombre':this.dato2,
             'definicion': response.data
         }
         
-        this.$emit('second',texto);
+        this.$emit('first',texto);
        })}
     
-    },
-    async cargarInput3(){
-        
-         let {value}=this.dato3[0];
-        
-       if (value!=''){
-       
-        await axios.post('/aspectos',this.dato3).then((response)=>{        
-        let nombre=response.data.value;
-        let definicion=response.data.respuestas;
-        let data=new Array(definicion.length);
-        let i=0;
-        nombre.forEach(element => {
-           if(definicion[i]!=""){
-            data[i]={
-                'nombre':element,
-                'definicion':definicion[i]
-            }}else{data[i]={'nombre':'','definicion':''}
-        }
-            i++;
-        });
-        let texto={
-            'id':32,
-            'aspectos':data
-        }
-        this.$emit('third',texto);
-        
-      });
-       }
-    }
-    
-    ,
-    addAspecto:function(){
-        this.dato3.push({value:''})
-        
-    }
-    ,
-    deleteAspecto:function(index){
-        console.log(index);
-        console.log(this.dato3);
-        let ind=this.dato3.length;
-        this.dato3.splice(ind-1,1);
-        let texto={'id':32}
-        this.$emit('deleteAspecto',texto);
     }
     ,
     deleteInput1(){
         this.dato1="";
-        let texto={'id':32}
+        let texto={'id':2}
         this.$emit('deleteDefinicion1',texto);
     }
     ,
     deleteInput2(){
         this.dato2="";
-        let texto={'id':32}
-        this.$emit('deleteDefinicion2',texto);
-    },
-    deleteAspectos(){
-        this.dato3=[];
-        let texto={'id':32}
-        this.$emit('deleteAspectos',texto)
+        let texto={'id':4}
+        this.$emit('deleteDefinicion1',texto);
     }
     ,
     limpiarCampo(){
      this.deleteInput1();
      this.deleteInput2();   
-     this.deleteAspectos();
-     this.addAspecto();   
+       
     }
      
     
 },
-
-data(){
-    return{
-        dato1:'',
-        dato2:'',
-        count:0,
-        dato3:[],
-        casas:[
-          "palas en casa 1",
-            "palas en casa 2",
-            "palas en casa 3",
-            "palas en casa 4",
-            "palas en casa 5",
-            "palas en casa 6",
-            "palas en casa 7",
-            "palas en casa 8",
-            "palas en casa 9",
-            "palas en casa 10",
-            "palas en casa 11",
-            "palas en casa 12"
-        ],
-      signos:[
-         "palas en aries",
-            "palas en tauro",
-            "palas en géminis",
-            "palas en cáncer",
-            "palas en leo",
-            "palas en virgo",
-            "palas en libra",
-            "palas en escorpio",
-            "palas en sagitario",
-            "palas en capricornio",
-            "palas en acuario",
-            "palas en piscis"
-      ],
-       aspectos:[
-       ]         
-    }
-}
-,
-mounted(){
-    this.addAspecto()
-},
-
-
-  created: function(){
+created: function(){
     this.$parent.$on('clean', this.limpiarCampo);
     
     
     this.$parent.$on('update', this.cargarCampo);
-  }
+}
 }
 
-import axios from 'axios'
-  
 
 </script>
