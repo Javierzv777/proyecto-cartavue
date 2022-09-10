@@ -344,10 +344,10 @@ export default {
     },
 
     created: function () {
-        this.$parent.$on('clean', this.limpiarCampo);
+        this.$root.$on('clean', this.limpiarCampo);
 
 
-        this.$parent.$on('update', this.cargarCampo);
+        this.$root.$on('update', this.cargarCampo);
     }
 }
 

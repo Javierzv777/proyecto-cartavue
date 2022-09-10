@@ -46,11 +46,6 @@
         
         
    />
-
-        <div style="clear:both;">
-        <h1 id='subirSol'>Sol </h1>
-        </div>
-        
         
         <div style="clear:both;">
         <h1 id='subirNodos'>Nodos Lunares</h1>
@@ -246,7 +241,7 @@ components,
       };
   },
  
-    methods //métodos vienen de methodos.js
+    methods 
 }
 
 </script>

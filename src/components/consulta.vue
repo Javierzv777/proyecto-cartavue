@@ -1,6 +1,6 @@
 <template> 
   <div >
-<div v-if= "consul.ascendente==true" :id="'bajar'+this.convertir(consul.name)"></div>  
+<div v-if= "consul.status==true" :id="'bajar'+this.convertir(consul.name)"></div>  
 
 
     <h3 class="justify" >{{consul.tipo1}}</h3>
@@ -17,7 +17,7 @@
         <h3 class="justify" >{{aspecto.nombre}}</h3>
         <p class="justify" >{{aspecto.definicion}}</p>
     </div>
-    <button v-if="consul.ascendente==true && consul.volver==true"  @click="volver(this.convertir(consul.name))">volver</button>
+    <button v-if="consul.status==true && consul.volver==true"  @click="volver(this.convertir(consul.name))">volver</button>
     
 
 </div>

@@ -129,7 +129,7 @@ import consul from './consult.js'
         }
         ,
         limpiarCarta:function(){ 
-            this.$emit('clean');
+            this.$root.$emit('clean');
             let flashName='Todas las definiciones han sido removidas correctamente';
             this.$emit('alertaFlashtwo',flashName);
             this.consul.forEach(element=>{
@@ -137,7 +137,7 @@ import consul from './consult.js'
             });   
         },
         cargarCarta: function() {
-            this.$emit('update');
+            this.$root.$emit('update');
             let flashName='Todas las definiciones marcadas han sido cargadas al final del formulario';
             this.$emit('alertaFlash',flashName);   
             setTimeout(()=>{

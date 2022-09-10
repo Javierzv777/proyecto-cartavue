@@ -9,7 +9,8 @@ export let methodsChildComponents= {
         });
         let flashName='La definicion de este campo ha sido removidas correctamente';
         this.$emit('alertaFlashtwo',flashName);   
-    },
+    } ,
+    
     limpiarAspectos(def){
         this.consul.forEach(element => {
             if(element.id==def.id){
