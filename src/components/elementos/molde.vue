@@ -220,10 +220,10 @@ export default {
         },
         async cargarInput3() {
             let f = 0;
-            for (f = 0; f <= this.dato3.length; f++) {
-                let dato3 = this.dato3[f].value;
+            for (f = 0; f <= this.dato3?.length; f++) {
+                let dato3 = this.dato3[f]?.value;
 
-                let dato4 = this.dato4[f].value;
+                let dato4 = this.dato4[f]?.value;
                 let dato5 = dato3.concat(' ', dato4);
 
                 this.dato5[f].value = dato5;
