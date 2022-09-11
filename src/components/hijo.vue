@@ -63,6 +63,7 @@
         v-for="consult in consul" 
        :key="consult.id"
         :consul="consult" 
+
    />
 
         <div>
