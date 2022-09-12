@@ -19,7 +19,9 @@
       <p class="justify" >{{consul.descripcionTipo1}}</p>
       <h3 class="justify"  style="margin-top:40px">{{consul.nombre1}}</h3>
       <!-- <p class="justify" >{{consul.definicion1}}</p> -->
-      <textarea class="justify textarea" v-model="definicion1"></textarea>
+      <textarea 
+      @input="resize()" ref="textarea"
+      class="justify textarea" v-model="definicion1"></textarea>
 
       <h3 class="justify"  style="margin-top:40px">{{consul.tipo2}}</h3>
       <p class="justify" >{{consul.descripcionTipo2}}</p>
@@ -60,7 +62,17 @@ export default {
         editar(){
           this.editFlag = !this.editFlag
           this.definicion1 = this.consul.definicion1
-        } 
+
+        },
+        limpiarCampo(){
+          this.editFlag = false,
+          this.definicion1 = ""
+        },
+        resize() {
+          let element = this.$refs["textarea"];
+          element.style.height = "18px";
+          element.style.height = element.scrollHeight + "px";
+        },
 
   },
 
@@ -71,7 +83,13 @@ export default {
       definicion1: ""
     }
   },
-
+  created: function () {
+        this.$root.$on('clean', this.limpiarCampo);
+        
+  },
+  updated() {
+    this.resize();
+  },
   
 }
 </script>
