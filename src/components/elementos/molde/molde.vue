@@ -8,7 +8,7 @@
         </div>
         <div class="campo">
     
-            <div class="principal">
+            <div :class="style.principal">
                 <button class="cargarCampo" @click="cargarCampo">cargar campo</button>
                 <div class="contenedorLuna">
                     <!---------signo----------------->
@@ -130,10 +130,9 @@
 
 <script>
 
-
-import { signos } from './variables';
-import { aspectos, astrosArray } from './variables'
-import {methodsChildComponents as methods} from '../methods.js'
+import style from "./molde.module.css";
+import { aspectos, astrosArray, signos} from '../variables'
+import {methodsChildComponents as methods} from '../../methods.js'
 
 export default {
     name: 'molde',
@@ -319,6 +318,7 @@ export default {
 
     data() {
         return {
+            style,
             idDinamico: `subir${this.convertir(this.component.name)}`,
             dato1: '',
             dato2: '',

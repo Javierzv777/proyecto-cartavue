@@ -118,7 +118,7 @@
 
 <script>
 
-import { nakshatras } from './variables';
+import { nakshatras } from '../variables';
 
 export default {
   name: 'nakshatra',

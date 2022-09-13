@@ -124,7 +124,7 @@
 
 <script>
 import axios from 'axios'
-import {signos} from './variables'
+import {signos} from '../variables'
 
 export default {
   name: 'ascendenteMedioCielo',

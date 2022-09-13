@@ -25,7 +25,7 @@
 
 <script>
 
-import consul from '../consult.js'
+import consul from '../../consult.js'
 
 export default {
   name: 'capitulos',

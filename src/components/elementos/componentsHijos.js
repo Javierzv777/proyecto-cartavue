@@ -1,13 +1,13 @@
-import capitulos from './capitulos.vue'
-import nodoNorte from './nodoNorte.vue'
-import parteFortuna from './parteFortuna.vue'
-import parteInfortunio from './parteInfortunio.vue'
-import ascendenteMedioCielo from './ascendenteMedioCielo.vue'
-import planetasRetrogrados from './planetasRetrogrados.vue'
-import hemisferio from './hemisferio.vue'
-import nakshatra from './nakshatra.vue'
-import influencias from './influencias.vue'
-import molde from './molde.vue'
+import capitulos from './capitulos/capitulos.vue'
+import nodoNorte from './nodos/nodoNorte.vue'
+import parteFortuna from './partes/parteFortuna.vue'
+import parteInfortunio from './partes/parteInfortunio.vue'
+import ascendenteMedioCielo from './ascendente/ascendenteMedioCielo.vue'
+import planetasRetrogrados from './retrogrados/planetasRetrogrados.vue'
+import hemisferio from './hemisferio/hemisferio.vue'
+import nakshatra from './nakshatra/nakshatra.vue'
+import influencias from './influencias/influencias.vue'
+import molde from './molde/molde.vue'
 
 export const components = {
   molde,

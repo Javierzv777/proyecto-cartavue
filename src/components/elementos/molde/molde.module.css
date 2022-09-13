@@ -1,0 +1,7 @@
+.principal{
+    display:inline-block;
+    text-align:left;
+}
+@media screen and (max-width: 980px){
+    .principal{text-align:left;}
+}
