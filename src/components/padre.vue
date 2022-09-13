@@ -28,7 +28,7 @@
         
             <button @click="thirdFlash" id="button">X</button>
             <p >Esta es una aplicacion web dinámica fácil de manejar en donde podrás buscar significados de posiciones astrológicas con la ayuda del mapa natal,
-o elaborar tu propio informe natal, dentro de las opciones se encuentra la luna negra Lilith, el planetoide Quiron, el parte de la fortuna, y los asteroides Ceres, Palas, Juno y Vesta, el mapa natal lo puede cargar en sitios web como www.astro.com o carta-natal.es, es probable que algunos significados no se encuentren disponibles. Para cargar aspectos debe seguir el patron: planeta mas cercano desde el sol hacia afuera según este orden; sol-luna-mercurio..., seguido del nombre del aspecto y finalizando por el planeta que lo aspecta. Ejemplo: 'sol trigono pluton','luna cuadratura ceres', 'mercurio conjuncion nodo norte'. Utilice solo minusculas.  </p>
+            o elaborar tu propio informe natal, dentro de las opciones se encuentra la luna negra Lilith, el planetoide Quiron, el parte de la fortuna, y los asteroides Ceres, Palas, Juno y Vesta, el mapa natal lo puede cargar en sitios web como www.astro.com o carta-natal.es, es probable que algunos significados no se encuentren disponibles. Para cargar aspectos debe seguir el patron: planeta mas cercano desde el sol hacia afuera según este orden; sol-luna-mercurio..., seguido del nombre del aspecto y finalizando por el planeta que lo aspecta. Ejemplo: 'sol trigono pluton','luna cuadratura ceres', 'mercurio conjuncion nodo norte'. Utilice solo minusculas.  </p>
         <button @click="thirdFlash" style="margin-top:20px;" >Cerrar</button>
         
         </div>
