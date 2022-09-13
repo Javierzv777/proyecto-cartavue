@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import axios from 'axios'
+import router from './router.js'
 // import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 // // Import Bootstrap and BootstrapVue CSS files (order is important)
@@ -15,6 +16,7 @@ axios.defaults.baseURL =   "http://localhost:3000" ;
 Vue.config.productionTip = false
 
 new Vue({
+  router,
   render: h => h(App),
 }).$mount('#app')
 

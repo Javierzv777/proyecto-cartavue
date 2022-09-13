@@ -1,7 +1,9 @@
 <template> 
   <div  >
 
-    
+    <div id="box">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum maxime voluptas repudiandae. Porro laudantium temporibus eveniet nesciunt quidem ex accusamus perspiciatis aperiam veniam dicta, esse praesentium quasi fugit sit! Fugit?</p>
+            </div>
 
 
         

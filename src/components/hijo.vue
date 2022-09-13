@@ -133,9 +133,9 @@ import consul from './consult.js'
             this.$root.$emit('clean');
             let flashName='Todas las definiciones han sido removidas correctamente';
             this.$emit('alertaFlashtwo',flashName);
-            this.consul.forEach(element=>{
-                element.volver=false;   
-            });   
+            // this.consul.forEach(element=>{
+            //     element.volver=false;   
+            // });   
         },
         cargarCarta: function() {
             this.$root.$emit('update');
