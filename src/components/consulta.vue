@@ -42,6 +42,14 @@
           <p class="justify" >{{aspecto.definicion}}</p>
       </div>
     </div>
+    <div v-if="editFlag === true">
+      <div v-for="(aspecto, index) in definicion3" :key="aspecto.id">
+          <h3 class="justify" >{{aspecto.nombre}}</h3>
+          <textarea @input="resize()" :ref="`textarea`+index+2"
+          class="justify textarea" v-model="definicion3[index].definicion"> 
+        </textarea>
+      </div>
+    </div>
     <button v-if="consul.status==true && consul.volver==true && editFlag == false" @click="volver(convertir(consul.name))">formulario</button>
     <button v-if="consul.status==true && consul.volver==true && editFlag == false"  @click="editar()">editar</button>
     
@@ -73,7 +81,7 @@ export default {
           this.editFlag = !this.editFlag
           this.definicion1 = this.consul.definicion1
           this.definicion2 = this.consul.definicion2
-
+          this.definicion3 = [...this.consul.aspectos]
         },
         limpiarCampo(){
           this.editFlag = false,
@@ -86,14 +94,23 @@ export default {
           let element2 = this.$refs["textarea2"];
           element2.style.height = "18px";
           element2.style.height = element2.scrollHeight + "px";
+
+          this.definicion3?.length>0 && this.definicion3.forEach((asp,i) => {
+            let element = this.$refs[`textarea${i+2}`];
+            element.style.height = "18px";
+            element.style.height = element.scrollHeight + "px";
+          })
         },
         putDb(){
-          axios.put('/update', {
+          let query = {
             title1: this.consul.nombre1,
             body1: this.definicion1,
             title2: this.consul.nombre2,
-            body2: this.definicion2
-          })
+            body2: this.definicion2,
+            aspectos: this.definicion3
+          }
+          console.log(query)
+          axios.put('/update', query)
         }
 
   },
@@ -102,7 +119,9 @@ export default {
   data(){
     return{
       editFlag: false,
-      definicion1: ""
+      definicion1: "",
+      definicion2: "",
+      definicion3: []
     }
   },
   created: function () {
