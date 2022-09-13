@@ -169,7 +169,7 @@ export default {
                 let peticionTipo = { nombre: 'sol_ensigno' };
                 await axios.post('/carta', peticionTipo).then((response) => {
                     let texto = {
-                        'id':  5+this.index,
+                        'id':  6+this.index*2,
                         'nombre': this.component.name + ' en el signo',
                         'definicion': response.data
                     }
@@ -181,7 +181,7 @@ export default {
                 }
                 await axios.post('/carta', peticion).then((response) => {
                     let texto = {
-                        'id':  5+this.index,
+                        'id':  6+this.index*2,
                         'nombre': this.dato1,
                         'definicion': response.data
                     }
@@ -196,7 +196,7 @@ export default {
                 let peticionTipo = { nombre: 'sol_encasa' };
                 await axios.post('/carta', peticionTipo).then((response) => {
                     let texto = {
-                        'id': 5+this.index,
+                        'id': 6+this.index*2,
                         'nombre': 'Sol en la Casa',
                         'definicion': response.data
                     }
@@ -208,7 +208,7 @@ export default {
                 }
                 await axios.post('/carta', peticion).then((response) => {
                     let texto = {
-                        'id': 5+this.index,
+                        'id': 6+this.index*2,
                         'nombre': this.dato2,
                         'definicion': response.data
                     }
@@ -255,7 +255,7 @@ export default {
                         i++;
                     });
                     let texto = {
-                        'id': 5+this.index,
+                        'id': 6+this.index*2,
                         'aspectos': data
                     }
                     this.$emit('third', texto);
@@ -281,26 +281,26 @@ export default {
             this.dato4.splice(ind4 - 1, 1);
             let ind5 = this.dato4.length;
             this.dato5.splice(ind5 - 1, 1);
-            let texto = { 'id': 5+this.index }
+            let texto = { 'id': 6+this.index*2 }
             this.$emit('deleteAspecto', texto);
         }
         ,
         deleteInput1() {
             this.dato1 = "";
-            let texto = { 'id': 5+this.index }
+            let texto = { 'id': 6+this.index*2 }
             this.$emit('deleteDefinicion1', texto);
         }
         ,
         deleteInput2() {
             this.dato2 = "";
-            let texto = { 'id': 5+this.index }
+            let texto = { 'id': 6+this.index*2 }
             this.$emit('deleteDefinicion2', texto);
         },
         deleteAspectos() {
             this.dato3 = [];
             this.dato4 = [];
             this.dato5 = [];
-            let texto = { 'id': 5+this.index }
+            let texto = { 'id': 6+this.index*2 }
             this.$emit('deleteAspectos', texto)
         }
         ,

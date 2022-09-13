@@ -14,19 +14,26 @@
       <p class="justify" >{{consul.definicion2}}</p>
     </div>
     
-    <div v-if="editFlag===true">
+    <div v-if="editFlag===true ">
       <h3 class="justify" >{{consul.tipo1}}</h3>
       <p class="justify" >{{consul.descripcionTipo1}}</p>
-      <h3 class="justify"  style="margin-top:40px">{{consul.nombre1}}</h3>
-      <!-- <p class="justify" >{{consul.definicion1}}</p> -->
-      <textarea 
-      @input="resize()" ref="textarea"
-      class="justify textarea" v-model="definicion1"></textarea>
+      <div v-if="consul.definicion1 != ''">
+        <h3 class="justify"  style="margin-top:40px">{{consul.nombre1}}</h3>
+        <!-- <p class="justify" >{{consul.definicion1}}</p> -->
+        <textarea @input="resize()" ref="textarea"
+          class="justify textarea" v-model="definicion1"> 
+        </textarea>
+      </div>
 
       <h3 class="justify"  style="margin-top:40px">{{consul.tipo2}}</h3>
       <p class="justify" >{{consul.descripcionTipo2}}</p>
-      <h3 class="justify" style="margin-top:40px">{{consul.nombre2}}</h3>
-      <p class="justify" >{{consul.definicion2}}</p>
+      <div v-if="consul.definicion2 != ''">
+        <h3 class="justify" style="margin-top:40px">{{consul.nombre2}}</h3>
+        <textarea @input="resize()" ref="textarea2"
+          class="justify textarea" v-model="definicion2"> 
+        </textarea>
+      </div>
+      <!-- <p class="justify" >{{consul.definicion2}}</p> -->
     </div>
 
     <div v-if="editFlag === false">
@@ -35,15 +42,18 @@
           <p class="justify" >{{aspecto.definicion}}</p>
       </div>
     </div>
-    <button v-if="consul.status==true && consul.volver==true"  @click="volver(convertir(consul.name))">volver</button>
-    <button v-if="consul.status==true && consul.volver==true"  @click="editar()">editar</button>
+    <button v-if="consul.status==true && consul.volver==true && editFlag == false" @click="volver(convertir(consul.name))">formulario</button>
+    <button v-if="consul.status==true && consul.volver==true && editFlag == false"  @click="editar()">editar</button>
     
+    <button v-if="consul.status==true && consul.volver==true && editFlag == true" @click="editar()">cancelar</button>
+    <button v-if="consul.status==true && consul.volver==true && editFlag == true"  @click="putDb()">aceptar</button>
 
 </div>
 </template>
 
 <script>
-import './consulta.css'
+import './consulta.css';
+import axios from 'axios';
 
 export default {
   name: 'consulta',
@@ -62,6 +72,7 @@ export default {
         editar(){
           this.editFlag = !this.editFlag
           this.definicion1 = this.consul.definicion1
+          this.definicion2 = this.consul.definicion2
 
         },
         limpiarCampo(){
@@ -72,7 +83,18 @@ export default {
           let element = this.$refs["textarea"];
           element.style.height = "18px";
           element.style.height = element.scrollHeight + "px";
+          let element2 = this.$refs["textarea2"];
+          element2.style.height = "18px";
+          element2.style.height = element2.scrollHeight + "px";
         },
+        putDb(){
+          axios.put('/update', {
+            title1: this.consul.nombre1,
+            body1: this.definicion1,
+            title2: this.consul.nombre2,
+            body2: this.definicion2
+          })
+        }
 
   },
 

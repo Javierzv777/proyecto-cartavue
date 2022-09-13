@@ -25,7 +25,7 @@
 
 <script>
 
-
+import consul from '../consult.js'
 
 export default {
   name: 'capitulos',
@@ -42,7 +42,9 @@ export default {
 
    
     async cargarInput1(){
-        
+        this.consul.forEach(element=>{
+                element.volver=false;   
+            });   
         
             let capitulo1={
                 'id':1,
@@ -227,57 +229,15 @@ export default {
     
     
     deleteInput1(){
-        
-        let capitulo1={'id':1};
-        this.$emit('deleteDefinicion1',capitulo1);
-        let capitulo2={'id':3};
-        this.$emit('deleteDefinicion1',capitulo2);
-        let capitulo3={'id':5};
-        this.$emit('deleteDefinicion1',capitulo3);
-        let capitulo4={'id':7};
-        this.$emit('deleteDefinicion1',capitulo4);
-        let capitulo5={'id':9};
-        this.$emit('deleteDefinicion1',capitulo5);
-        let capitulo6={'id':11};
-        this.$emit('deleteDefinicion1',capitulo6);
-        let capitulo7={'id':13};
-        this.$emit('deleteDefinicion1',capitulo7);
-        let capitulo8={'id':15};
-        this.$emit('deleteDefinicion1',capitulo8);
-        let capitulo9={'id':17};
-        this.$emit('deleteDefinicion1',capitulo9);
-        let capitulo10={'id':19};
-        this.$emit('deleteDefinicion1',capitulo10);
-        let capitulo11={'id':21};
-        this.$emit('deleteDefinicion1',capitulo11);
-        let capitulo12={'id':23};
-        this.$emit('deleteDefinicion1',capitulo12);
-        let capitulo13={'id':25};
-        this.$emit('deleteDefinicion1',capitulo13);
-        let capitulo14={'id':27};
-        this.$emit('deleteDefinicion1',capitulo14);
-        let capitulo15={'id':29};
-        this.$emit('deleteDefinicion1',capitulo15);
-        let capitulo16={'id':31};
-        this.$emit('deleteDefinicion1',capitulo16);
-        let capitulo17={'id':33};
-        this.$emit('deleteDefinicion1',capitulo17);
-        let capitulo18={'id':35};
-        this.$emit('deleteDefinicion1',capitulo18);
-        let capitulo19={'id':37};
-        this.$emit('deleteDefinicion1',capitulo19);
-        let capitulo20={'id':39};
-        this.$emit('deleteDefinicion1',capitulo20);
-        let capitulo21={'id':41};
-        this.$emit('deleteDefinicion1',capitulo21);
-        let capitulo22={'id':43};
-        this.$emit('deleteDefinicion1',capitulo22);
-        let capitulo23={'id':45};
-        this.$emit('deleteDefinicion1',capitulo23);
-        let capitulo24={'id':47};
-        this.$emit('deleteDefinicion1',capitulo24);
-        let capitulo25={'id':49};
-        this.$emit('deleteDefinicion1',capitulo25);
+
+        this.consul.forEach(element=>{
+            if(element.definicion1 != "" || element.definicion2 != "" || element.aspectos.length > 0)
+                element.volver=true;   
+            });   
+        for (let i = 1; i <= 49 ; i ++){
+           
+            this.$emit('deleteDefinicion1',{'id':i++});
+        }
         
     }
 
@@ -292,7 +252,12 @@ created: function(){
     
     
    
-}
+},
+data() {
+    return {
+        consul
+    }
+},
 }
 
 
