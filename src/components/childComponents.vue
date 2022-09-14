@@ -201,10 +201,10 @@
         ref="childComponent"
     />
 
+        </div>
         <div>
         <button style='float:right; margin-right:60px; margin-top:5px' @click="bajar('Nakshatra')">deslizar al campo cargado</button>           
         </div>
-    </div>
          <div  style='clear:both; margin-top:30px;'>
         <capitulos         
         @deleteDefinicion1="limpiarDef1"

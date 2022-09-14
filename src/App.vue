@@ -4,8 +4,6 @@
       <div class="container">
         <router-link to="/api">Link a la aplicacion</router-link>
         <router-view></router-view>
-
-
             <!--img alt="Vue logo" src="./assets/logo.png"-->
             
         </div>

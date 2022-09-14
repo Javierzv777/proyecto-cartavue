@@ -1,9 +1,162 @@
-@media screen and (max-width: 980px){
-
+.cargarCampo {
+    float: left;
+    display: inline-block;
 }
-@media screen and (max-width: 620px){
-
-}
-@media screen and (max-width: 500px){
+.limpiarCamp{
+    margin-top:10px;
     
+    float: left;}
+.cargarCampo2{
+    display:none;
+}
+.limpiarCamp2{
+    display:none
+}
+.select{
+    background-color:white;
+}
+.uniaspecto {
+    display: inline-block;
+    min-width: 178px;
+    position: relative;
+    min-height: 50px;
+    float: left;
+}
+
+.uniaspecto1 {
+    position: absolute;
+    width: 120px;
+    display: block;
+    left: 180px;
+    top: 0px;
+}
+
+.uniaspecto2 {
+    display: inline-block;
+}
+
+.uniaspecto3 {
+    position: relative;
+    left: 5px;
+}
+
+.uniaspecto4 {
+    clear: both;
+    float: right;
+    right: 0px;
+    position: absolute;
+    display: inline-block;
+
+}
+
+.uniaspecto5 {
+    position: absolute;
+    width: 300;
+    top: 40px;
+    left: 128px;
+    display: inline-block;
+}
+
+.cargarPlanetas {
+    position: absolute;
+    width: 120px;
+    top: -15px;
+    left: -128px;
+}
+
+@media screen and (max-width: 980px) {
+    .cargarCampo {
+        display: none;
+    }
+    .limpiarCamp{
+        display:none;
+    }
+
+   .limpiarCamp2{
+       margin-top:5px;
+       right:9px;
+       position:absolute;
+       display: inline-block;
+       margin-top:33px;
+   } 
+    .cargarCampo2{
+        display:inline-block;
+         position:absolute;
+        margin-top:12px;
+        right:9px;
+        
+       
+        
+    }
+}
+
+@media screen and (max-width: 620px) {}
+
+@media screen and (max-width: 500px) {
+    .uniaspecto {
+        display: inline-block;
+        min-width: 178px;
+        position: relative;
+        min-height: 50px;
+        float: left;
+    }
+
+    .uniaspecto1 {
+        position: relative;
+        width: 120px;
+        display: block;
+        left: 60px;
+        top: 20px;
+    }
+
+    .uniaspecto2 {
+        display: block;
+    }
+
+    .uniaspecto3 {
+        position: relative;
+        top: 30px;
+        left: 30px;
+    }
+
+    .uniaspecto4 {
+        clear: both;
+        float: right;
+        right: 0px;
+        position: relative;
+        display: inline-block;
+
+    }
+
+    .uniaspecto5 {
+
+        position: relative;
+        width: 300;
+        top: 70px;
+        left: -120px;
+        display: inline-block;
+        margin-bottom: 40px;
+    }
+
+    .cargarPlanetas {
+        position: absolute;
+        width: 120px;
+        top: -15px;
+        left: 0px;
+    }
+    .limpiarCamp2{
+        margin-top:25px;
+       left:5px;
+        display: inline-block;
+        margin-top:35px;
+        
+    } 
+     .cargarCampo2{
+         display:inline-block;
+         left:5px;
+         margin-top:35px;
+         margin-top:15px;
+        
+         
+     }
 }

@@ -2,12 +2,12 @@
   <template>
      <div style="position:relative;">
 
-        <button class="cargarCampo" @click="cargarCampo">
+        <button :class="style.cargarCampo" @click="cargarCampo">
             cargar campo
         </button> 
-            <div class="contenedorRetrogrado">
+            <div :class="style.contenedorRetrogrado">
  <!----------------------------------------------------------------------------------------------------->               
-                    <form class="uniaspecto"   v-on:submit.prevent="cargarInput3()" action="" >
+                    <form :class="style.uniaspecto"   v-on:submit.prevent="cargarInput3()" action="" >
 
                         <div class='uniaspecto1'  >
                             <button   @click.prevent= "addAspecto3">
@@ -19,16 +19,18 @@
                         </div>
 
 
-                        <div class="uniaspecto2">
-                            <div class=""  >
+                        <div :class="style.uniaspecto2">
+                            <div   >
                                 <div v-for="(find,index) in dato3"  :key="find.id">
-                                    <select class="uniaspecto3 select" style="width:170px;" v-model="find.value" :key="index">
-                                        <option   disabled value=""  >__influencias
-                                        </option>
-                                        <option v-for="influencia in influencias" :key="influencia.id">{{influencia}}
-                                        </option>
-                                    </select>
-                                    <!--input class="uniaspecto3" list="influencias" v-model="find.value" :key="index" placeholder="__inluencias">
+                                    <div :class="style.uniaspecto3 ">
+                                        <select :class="style.select" style="width:170px;" v-model="find.value" :key="index">
+                                            <option   disabled value=""  >__influencias
+                                            </option>
+                                            <option v-for="influencia in influencias" :key="influencia.id">{{influencia}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <!--input :class="style.uniaspecto3" list="influencias" v-model="find.value" :key="index" placeholder="__inluencias">
                                         <datalist id="influencias">
                                             <option v-for="influencia in influencias" :key="influencia.id">{{influencia}}</option>
                                         </datalist-->
@@ -36,23 +38,23 @@
                             </div>
                         </div>
                     
-                        <div class="uniaspecto4" >    
+                        <div :class="style.uniaspecto4" >    
                             
-                            <div class="uniaspecto5"  > 
-                                <div class="cargarPlanetas"  style="visibility:hidden;" >
+                            <div :class="style.uniaspecto5"  > 
+                                <div :class="style.cargarPlanetas"  style="visibility:hidden;" >
                                     <button   type="submit">
                                             cargar predicción
                                     </button>
                                 </div>
                 
                             
-                                <div class="cargarCampo2" style="width:120px;">
+                                <div :class="style.cargarCampo2" style="width:120px;">
                                             <button  @click="cargarCampo">
                                                 cargar campo
                                             </button>  
                                 </div>
 
-                                <div class="limpiarCamp2" style="width:120px;">
+                                <div :class="style.limpiarCamp2" style="width:120px;">
                                     <button id='limpiar' v-on:click="limpiarCampo">
                                         limpiar campo
                                     </button>
@@ -69,7 +71,7 @@
 
                 </div>
 
-                <div class="limpiarCamp" style="position:absolute; top:20px;" >
+                <div :class="style.limpiarCamp" style="position:absolute; top:20px;" >
                             <button id='limpiar' v-on:click="limpiarCampo">
                                 limpiar campo
                             </button>
@@ -89,7 +91,7 @@
 
 
 <script>
-
+import style from "./influencias.module.css"
 
 
 export default {
@@ -162,6 +164,7 @@ mounted(){
 ,
 data(){
     return{
+        style,
         dato3:[],
         
         influencias:[
