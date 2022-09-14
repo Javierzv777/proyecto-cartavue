@@ -1,0 +1,186 @@
+
+.cargarCampo{float:left;
+    display:inline-block;
+       }
+       .principal{
+        display:inline-block;
+    text-align:left;
+    }
+    .limpiarCamp{
+        margin-top:10px;
+        
+        float: left;
+    }
+    .cargarCampo2{
+        display:none;
+    }
+    .limpiarCamp2{
+        display:none
+    }
+    .select{
+        background-color:white;
+    }
+    .signo,.casa{display: inline-block;
+    }
+    .cargar1{display:inline-block;}
+
+.cargar2{display:inline-block;}
+.aspectos{position:relative; 
+    margin-top: 10px;
+    right: 0%;
+    float: right;
+    width: 470px;}
+
+    .botonAspec{position: absolute; 
+    right:20px;
+    width:120px;
+    }
+    .aspectos2{float:right;}
+    
+    .aspectos6{display:inline-block;
+        right: 203px;}
+
+@media screen and (max-width: 980px){
+    .contenedorAspectosInvisibles{
+        position:absolute;
+        left:230px;
+        top:0px;
+    }
+    .contenedorMolde{
+        position:relative;
+        right:90px;
+    }
+    .principal{
+        text-align:left;
+    }
+
+    .cargarCampo{
+        display:none;
+     }
+    .limpiarCamp{
+        display:none;
+    }
+    .limpiarCamp2{
+        margin-top:5px;
+        right:9px;
+        position:absolute;
+        display: inline-block;
+        margin-top:33px;
+    } 
+    .cargarCampo2{
+        display:inline-block;
+         position:absolute;
+        margin-top:12px;
+        right:9px;
+        
+       
+        
+    }
+    .botonAspec{position: absolute; 
+        right:35px;
+        }
+    .signo,.casa{
+    float:right;
+    margin-right:45px;
+    margin-top:5px;
+    }
+    .cargar1{
+        margin-left:10px;
+    }
+    .cargar2{
+        margin-left:10px;
+    }
+    .aspectos{margin-top:5px;
+    }
+}
+@media screen and (max-width: 620px){
+
+}
+@media screen and (max-width: 500px){
+    .contenedorAspectosInvisibles{
+        position:absolute;
+        left:70px;
+        top:-10px;
+        background-color:blue;
+        
+    }
+    .contenedorMolde{
+        position:relative;
+        right:0px;
+    }
+    .aspectos2{
+        clear:both;
+        display:block;
+        left: 0px;
+    }
+    .botonAspec{
+   
+   
+        left:60px;
+        position: absolute; 
+       
+        display:block; 
+        }
+
+    .signo{
+        float:left;
+       
+        margin-right:50px;
+        margin-left: 40px;
+        margin-top:5px;
+        
+    }
+    .casa{
+    
+        float:left;
+        /* margin-right; */
+         margin-left: 40px;
+         margin-top:45px;
+     
+     }
+     .cargar1{
+        width:150px;
+        margin-left:30px;
+      
+        position:absolute;
+        display:block;
+        margin-top:5px;
+    }
+    .cargar2{
+        width:150px;
+        margin-left:30px;
+      
+        position:absolute;
+        display:block;
+        margin-top:5px;
+    }
+
+    .limpiarCamp2{
+        margin-top:25px;
+       left:5px;
+        display: inline-block;
+        margin-top:35px;
+        
+    } 
+    .cargarCampo2{
+        display:inline-block;
+        left:5px;
+        margin-top:35px;
+        margin-top:15px;
+       
+        
+    }
+    .aspectos{
+        clear:both;
+      display:block;
+       float:left;
+       left:0px;
+       margin-top:40px;
+      width:50px;
+    }
+    .aspectos6{
+        clear:both;
+        display:block;
+       left:0px;
+    }
+}

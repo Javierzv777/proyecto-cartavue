@@ -134,3 +134,23 @@ export default {
   
 }
 </script>
+
+<style module>
+  textarea {
+    width: 100%;
+    min-height: 72px;
+    padding: 2px;
+    resize: none;
+    overflow: hidden;
+    background-color: transparent;
+    border: 2px solid #000;
+    border-radius: 4px;
+    font-family: "Inconsolata", monospace;
+    /* font-size: 1rem; */
+    color: rgb(255, 255, 255);
+  }
+
+  textarea:focus {
+    outline: none;
+  }
+</style>

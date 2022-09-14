@@ -164,3 +164,17 @@ import consul from './consult.js'
 }
 
 </script>
+
+<style module>
+
+@media screen and (max-width: 980px){
+
+}
+@media screen and (max-width: 620px){
+
+}
+@media screen and (max-width: 500px){
+    
+}
+
+</style>

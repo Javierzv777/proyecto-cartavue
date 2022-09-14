@@ -1,22 +1,22 @@
 <template> 
-<div class="principal">
+<div :class="style.principal">
 
-    <button class="cargarCampo" @click="cargarCampo">
+    <button :class="style.cargarCampo" @click="cargarCampo">
         cargar campo
     </button>   
-    <div class="contenedorLuna"> 
+    <div :class="style.contenedorMolde"> 
  <!---------signo----------------->               
        
-        <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
+        <form :class="style.signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
 
-            <select   v-model="dato1" style="width:175px;" class="select">
+            <select   v-model="dato1" style="width:175px;" :class="style.select">
                 <option disabled value=""  >__ascendente
                 </option>
                 <option v-for="ascendente in ascendentes" :key="ascendente.id">{{ascendente}}
                 </option>
             </select>
 
-            <div class="cargar1">
+            <div :class="style.cargar1">
                 <button  id="cargar1" type="submit">
                     cargar
                 </button>
@@ -27,9 +27,9 @@
 
         </form>
  <!-------------casa---------------->     
-        <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
+        <form :class="style.casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
 
-             <select   v-model="dato2" style="width:175px;" class="select" >
+             <select   v-model="dato2" style="width:175px;" :class="style.select" >
                 <option disabled value=""  >__medio cielo
                 </option>
                 <option v-for="medioCielo in medioCielos" :key="medioCielo.id">{{medioCielo}}       
@@ -37,7 +37,7 @@
             </select>
           
 
-            <div class="cargar2">
+            <div :class="style.cargar2">
                 <button  id="cargar2" type="submit">
                     cargar
                 </button>
@@ -53,8 +53,8 @@
 
         
 <!------------aspecto------------->       
-           <form class="aspectos" v-on:submit.prevent="cargarInput3()" action="" >
-            <div class="contenedorAspectosInvisibles">
+           <form :class="style.aspectos" v-on:submit.prevent="cargarInput3()" action="" >
+            <div :class="style.contenedorAspectosInvisibles">
 
 
                 <div class='botonAspec' style="display:none;"  >
@@ -67,30 +67,30 @@
                 </div>
 
 
-                <div class="aspectos2"  >
-                    <div class="aspectos6" style="display:none;" >
+                <div :class="style.aspectos2"  >
+                    <div :class="style.aspectos6" style="display:none;" >
                         <!-- <div v-for="(find,index) in dato3" :key="find.id">
-                            <input class="aspectos5unido" list="opcionesLilith" v-model="find.value" :key="index" placeholder="__aspectos del lilith">
+                            <input :class="style.aspectos5unido" list="opcionesLilith" v-model="find.value" :key="index" placeholder="__aspectos del lilith">
                             <datalist id="opcionesLilith">
                                 <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
                             </datalist>
                         </div> -->
                     </div>
                     <div  style="width:200px;" > 
-                        <div class="cargarAspectos2" style="display:none;" >
+                        <div :class="style.cargarAspectos2" style="display:none;" >
                             <button   type="submit">
                                     cargar aspectos
                             </button>
                         </div>
         
                         
-                            <div class="cargarCampo2">
+                            <div :class="style.cargarCampo2">
                                         <button  @click="cargarCampo">
                                             cargar campo
                                         </button>  
                             </div>
 
-                            <div class="limpiarCamp2">
+                            <div :class="style.limpiarCamp2">
                                 <button id='limpiar' v-on:click="limpiarCampo">
                                     limpiar campo
                                 </button>
@@ -105,7 +105,7 @@
 <!---------------------------------------------------------------------------------------------------->
         
             </div>
-               <div class="limpiarCamp">
+               <div :class="style.limpiarCamp">
                         <button id='limpiar' v-on:click="limpiarCampo">
                             limpiar campo
                         </button>
@@ -125,11 +125,13 @@
 <script>
 import axios from 'axios'
 import {signos} from '../variables'
+import style from './ascendente.module.css'
 
 export default {
   name: 'ascendenteMedioCielo',
   data(){
     return{
+        style,
       dato1:'',
         dato2:'',
       ascendentes:signos.map(e=>`ascendente en ${e}`),

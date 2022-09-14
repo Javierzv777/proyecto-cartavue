@@ -322,8 +322,12 @@ float:left;}
         right:-20px;
         }
     
+        .contenedorLuna{
+            position:relative;
+            right:90px;
+        }
 
-     .contenedorLuna{
+     .contenedorMolde{
          position:relative;
          right:90px;
      }
@@ -481,8 +485,11 @@ float:left;}
     .contenedorRetrogrado{
         right:5px;
     }
-    
-    .contenedorLuna{
+    .contenedoLuna{
+        position:relative;
+        right:0px;
+    }
+    .contenedorMolde{
          position:relative;
          right:0px;
      }
@@ -597,10 +604,7 @@ float:left;}
     left:60px;
     position: absolute; 
    
-    display:block;
-    
- 
-    
+    display:block; 
     }
 .cargarAspectos{
     margin-top:30px;
