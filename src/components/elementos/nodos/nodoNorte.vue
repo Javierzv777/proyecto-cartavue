@@ -1,21 +1,21 @@
 <template> 
-<div class="principal">
+<div :class="style.principal">
 
-    <button class="cargarCampo" @click="cargarCampo">
+    <button :class="style.cargarCampo" @click="cargarCampo">
         cargar campo
     </button>   
-    <div class="contenedorLuna"> 
+    <div :class="style.contenedorMolde"> 
  <!---------signo----------------->               
        
-        <form class="signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
-             <select   v-model="dato1" style="width:175px;" class="select" >
+        <form :class="style.signo"  action="" v-on:submit.prevent="cargarInput1()" method="POST" >
+             <select   v-model="dato1" style="width:175px;" :class="style.select" >
                 <option disabled value=""  >__nodo norte en signo
                 </option>
                 <option v-for="signo in signos" :key="signo.id">{{signo}}
                 </option>
             </select>
 
-            <div class="cargar1">
+            <div :class="style.cargar1">
                 <button  id="cargar1" type="submit">
                     cargar
                 </button>
@@ -26,16 +26,16 @@
 
         </form>
  <!-------------casa---------------->     
-        <form class="casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
+        <form :class="style.casa" v-on:submit.prevent="cargarInput2()" action="" method="POST"  >
 
-            <select   v-model="dato2" style="width:175px; " class="select" >
+            <select   v-model="dato2" style="width:175px; " :class="style.select" >
                 <option disabled value=""  >__nodo norte en casa
                 </option>
                 <option v-for="casa in casas" :key="casa.id" >{{casa}}
                 </option>
             </select>
 
-            <div class="cargar2">
+            <div :class="style.cargar2">
                 <button  id="cargar2" type="submit">
                     cargar
                 </button>
@@ -51,7 +51,7 @@
 
 
 <!------------aspecto------------->       
-           <form class="aspectos"  v-on:submit.prevent="cargarInput3()" action="" >
+           <form :class="style.aspectos"  v-on:submit.prevent="cargarInput3()" action="" >
 
                 <div class='botonAspec' >
                     <button   @click.prevent= "addAspecto">
@@ -63,36 +63,38 @@
                 </div>
 
 
-                <div class="aspectos2"  >
-                    <div class="aspectos6" >
+                <div :class="style.aspectos2"  >
+                    <div :class="style.aspectos6" >
                         <div v-for="(find,index) in dato3" :key="find.id">
-                            <select class='aspectos5unido select'  v-model="find.value" :key="index">
-                                <option disabled value=""  >__aspectos del nodo norte
-                                </option>
-                                <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}
-                                </option>
-                            </select>
-                            <!--input class="aspectos5unido" list="opcionesNodo3" v-model="find.value" :key="index" placeholder="__aspectos del nodo norte">
+                            <div  :class="style.aspectos5unido">
+                                <select :class="style.select"  v-model="find.value" :key="index">
+                                    <option disabled value=""  >__aspectos del nodo norte
+                                    </option>
+                                    <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}
+                                    </option>
+                                </select>
+                            </div>
+                            <!--input :class="style.aspectos5unido" list="opcionesNodo3" v-model="find.value" :key="index" placeholder="__aspectos del nodo norte">
                                 <datalist id="opcionesNodo3">
                                     <option v-for="aspecto in aspectos" :key="aspecto.id">{{aspecto}}</option>
                                 </datalist-->
                         </div>
                     </div>
-                    <div class="cargarAspectos"  > 
-                        <div class="cargarAspectos2">
+                    <div :class="style.cargarAspectos"  > 
+                        <div :class="style.cargarAspectos2">
                             <button   type="submit">
                                     cargar aspectos
                             </button>
                         </div>
         
                     
-                        <div class="cargarCampo2">
+                        <div :class="style.cargarCampo2">
                                     <button  @click="cargarCampo">
                                         cargar campo
                                     </button>  
                         </div>
 
-                        <div class="limpiarCamp2">
+                        <div :class="style.limpiarCamp2">
                             <button id='limpiar' v-on:click="limpiarCampo">
                                 limpiar campo
                             </button>
@@ -105,7 +107,7 @@
 <!---------------------------------------------------------------------------------------------------->
 
             </div>
-               <div class="limpiarCamp">
+               <div :class="style.limpiarCamp">
                         <button id='limpiar' v-on:click="limpiarCampo">
                             limpiar campo
                         </button>
@@ -129,7 +131,7 @@
 
 
 <script>
-
+import style from "./nodo.module.css"
 
 
 export default {
@@ -271,6 +273,7 @@ export default {
 
 data(){
     return{
+        style,
         dato1:'',
         dato2:'',
         count:0,

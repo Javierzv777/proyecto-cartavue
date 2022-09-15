@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import './consulta.css';
+import './consulta.module.css';
 import axios from 'axios';
 
 export default {

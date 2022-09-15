@@ -1,9 +1,328 @@
-@media screen and (max-width: 980px){
+.campo {
+    background-color: #FCE477
+        /*#FAE743*/
+    ;
+    min-height: max-content;
+    display: block;
+    padding: 30px;
+    border-radius: 10px;
+    border: 5px solid white;
+    width: 90%;
+    position: relative;
 
 }
-@media screen and (max-width: 620px){
+
+.signo,
+.casa {
+    display: inline-block;
 
 }
-@media screen and (max-width: 500px){
-    
+
+.aspectos {
+    position: relative;
+    margin-top: 10px;
+    right: 0%;
+    float: right;
+    width: 470px;
+}
+
+.botonAspec {
+    position: absolute;
+    right: 20px;
+    width: 120px;
+}
+
+.aspectos2 {
+    float: right;
+}
+
+.aspectos6 {
+    display: inline-block;
+    right: 203px;
+}
+
+
+
+.aspectos5unido{width: 200px;
+    position:relative;
+    right:157px;
+    display:block;
+    }
+
+.aspectos3 {
+    display: inline-block;
+    position: absolute;
+    right: 148px;
+}
+
+
+.aspectos4 {
+    width: 70px;
+    position: relative;
+    display: inline-block;
+}
+
+.cargarAspectos {
+    float: right;
+    display: inline-block;
+    margin-top: 23px;
+    position: absolute;
+    right: 28px;
+}
+
+.limpiarCamp {
+    margin-top: 10px;
+
+    float: left;
+}
+
+
+
+.cargarCampo2 {
+    display: none;
+}
+
+.limpiarCamp2 {
+    display: none
+}
+
+.select {
+    background-color: white;
+}
+
+.cargar1 {
+    display: inline-block;
+}
+
+.cargar2 {
+    display: inline-block;
+}
+
+.cargarCampo {
+    float: left;
+    display: inline-block;
+}
+
+.principal {
+    display: inline-block;
+    text-align: left;
+}
+
+@media screen and (max-width: 980px) {
+    .contenedorMolde {
+        position: relative;
+        right: 90px;
+    }
+
+    .campo {
+        min-height: 140px;
+    }
+
+    .cargarCampo {
+        display: none;
+    }
+
+    .limpiarCamp {
+        display: none;
+    }
+
+    .limpiarCamp2 {
+        margin-top: 5px;
+        right: 9px;
+        position: absolute;
+        display: inline-block;
+        margin-top: 33px;
+    }
+
+    .cargarCampo2 {
+        display: inline-block;
+        position: absolute;
+        margin-top: 12px;
+        right: 9px;
+
+
+
+    }
+
+    .aspectos {
+        margin-top: 5px;
+    }
+
+    .aspectos3 {
+        display: inline-block;
+        position: absolute;
+        right: 160px;
+    }
+
+
+
+
+
+    .aspectos5 {
+        width: 110px;
+        position: relative;
+        right: 240px;
+
+    }
+
+    .botonAspec {
+        position: absolute;
+        right: 35px;
+
+
+
+    }
+
+    .cargarAspectos {
+
+        right: 40px;
+
+    }
+
+    .signo,
+    .casa {
+        float: right;
+        margin-right: 45px;
+        margin-top: 5px;
+    }
+
+    .cargar1 {
+        margin-left: 10px;
+    }
+
+    .cargar2 {
+        margin-left: 10px;
+    }
+
+    .principal {
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 620px) {}
+
+@media screen and (max-width: 500px) {
+    .contenedorMolde {
+        position: relative;
+        right: 0px;
+    }
+
+    .campo {
+
+        max-width: 260px;
+        width: 80%;
+        min-height: 170px;
+        padding-bottom: 115px;
+        position: relative;
+
+    }
+
+    .limpiarCamp2 {
+        margin-top: 25px;
+        left: 5px;
+        display: inline-block;
+        margin-top: 35px;
+
+    }
+
+    .cargarCampo2 {
+        display: inline-block;
+        left: 5px;
+        margin-top: 35px;
+        margin-top: 15px;
+
+
+    }
+
+    .aspectos {
+        clear: both;
+        display: block;
+        float: left;
+        left: 0px;
+        margin-top: 40px;
+        width: 50px;
+    }
+
+    .aspectos3 {
+        display: inline-block;
+        position: absolute;
+
+        top: 25px;
+        left: 130px;
+
+    }
+
+    .aspectos5unido{
+      
+      
+        left:170px;
+        top:28px;
+       
+       
+        }
+
+    .aspectos6 {
+        clear: both;
+        display: block;
+        left: 0px;
+    }
+
+
+    .aspectos2 {
+        clear: both;
+        display: block;
+        left: 0px;
+    }
+
+    .botonAspec {
+
+
+        left: 60px;
+        position: absolute;
+
+        display: block;
+    }
+
+    .cargarAspectos {
+        margin-top: 30px;
+        width: 200px;
+        left: 60px;
+
+    }
+
+    .signo {
+        float: left;
+
+        margin-right: 50px;
+        margin-left: 40px;
+        margin-top: 5px;
+
+    }
+
+    .casa {
+
+        float: left;
+        /* margin-right; */
+        margin-left: 40px;
+        margin-top: 45px;
+
+    }
+
+    .cargar1 {
+        width: 150px;
+        margin-left: 30px;
+
+        position: absolute;
+        display: block;
+        margin-top: 5px;
+    }
+
+    .cargar2 {
+        width: 150px;
+        margin-left: 30px;
+
+        position: absolute;
+        display: block;
+        margin-top: 5px;
+    }
 }

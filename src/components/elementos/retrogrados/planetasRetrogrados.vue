@@ -3,12 +3,12 @@
 
      <div style="position:relative;">
 
-        <button class="cargarCampo" @click="cargarCampo">
+        <button :class="style.cargarCampo" @click="cargarCampo">
             cargar campo
         </button> 
-            <div class="contenedorRetrogrado">
+            <div :class="style.contenedorRetrogrado">
  <!----------------------------------------------------------------------------------------------------->               
-                    <form class="uniaspecto"   v-on:submit.prevent="cargarInput3()" action="" >
+                    <form :class="style.uniaspecto"   v-on:submit.prevent="cargarInput3()" action="" >
 
                         <div class='uniaspecto1'  >
                             <button   @click.prevent= "addAspecto3">
@@ -20,16 +20,18 @@
                         </div>
 
 
-                        <div class="uniaspecto2">
-                            <div class=""  >
+                        <div :class="style.uniaspecto2">
+                            <div  >
                                 <div  v-for="(find,index) in dato3"  :key="find.id">
-                                    <select class="uniaspecto3 select"  v-model="find.value" :key="index">
-                                        <option disabled value=""  >__planetas retrogrados
-                                        </option>
-                                        <option v-for="retrogrado in retrogrados" :key="retrogrado.id">{{retrogrado}}
-                                        </option>
-                                    </select>
-                                    <!--input class="uniaspecto3"  list="PRetrogrados" v-model="find.value" :key="index" placeholder="__planetas retrogrados">
+                                    <div :class="style.uniaspecto3">
+                                        <select :class="style.select"  v-model="find.value" :key="index">
+                                            <option disabled value=""  >__planetas retrogrados
+                                            </option>
+                                            <option v-for="retrogrado in retrogrados" :key="retrogrado.id">{{retrogrado}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <!--input :class="style.uniaspecto3"  list="PRetrogrados" v-model="find.value" :key="index" placeholder="__planetas retrogrados">
                                         <datalist id="PRetrogrados">
                                             <option v-for="retrogrado in retrogrados" :key="retrogrado.id">{{retrogrado}}</option>
                                         </datalist-->
@@ -37,23 +39,23 @@
                             </div>
                         </div>
                     
-                        <div class="uniaspecto4" >    
+                        <div :class="style.uniaspecto4" >    
                             
-                            <div class="uniaspecto5"  > 
-                                <div class="cargarPlanetas" >
+                            <div :class="style.uniaspecto5"  > 
+                                <div :class="style.cargarPlanetas" >
                                     <button   type="submit">
                                             cargar planetas
                                     </button>
                                 </div>
                 
                             
-                                <div class="cargarCampo2" style="width:120px;">
+                                <div :class="style.cargarCampo2" style="width:120px;">
                                             <button  @click="cargarCampo">
                                                 cargar campo
                                             </button>  
                                 </div>
 
-                                <div class="limpiarCamp2" style="width:120px;">
+                                <div :class="style.limpiarCamp2" style="width:120px;">
                                     <button id='limpiar' v-on:click="limpiarCampo">
                                         limpiar campo
                                     </button>
@@ -70,7 +72,7 @@
 
                 </div>
 
-                <div class="limpiarCamp" style="position:absolute; top:20px;" >
+                <div :class="style.limpiarCamp" style="position:absolute; top:20px;" >
                             <button id='limpiar' v-on:click="limpiarCampo">
                                 limpiar campo
                             </button>
@@ -91,7 +93,7 @@
 
 
 <script>
-
+import style from "./retrogrados.module.css"
 
 
 export default {
@@ -164,6 +166,7 @@ mounted(){
 ,
 data(){
     return{
+        style,
         dato3:[],
         
         retrogrados:[
