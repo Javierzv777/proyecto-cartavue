@@ -29,6 +29,7 @@ export default {
           apikey
       )
         .then((response) => {
+          console.log(response.data);
           const { lat, lng } = response.data.results[0].geometry.location;
           this.store.latitud = lat;
           this.store.longitud = lng;
