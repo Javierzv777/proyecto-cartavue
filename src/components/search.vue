@@ -43,14 +43,14 @@ export default {
         .tz(`${date}T${time}:00`, this.store.timezone)
         .format("YYYYMMDDhhmmss");
       console.log(dateToSend);
-      // // "YYYYMMDDhhmmss",
+      // "YYYYMMDDhhmmss",
       // axios
       //   .post(
-      //     "http://ephemeris.kibo.cz/api/v1/planets",
+      //     "http://private-17a36a-astrologyapi.apiary-mock.com/api/v1/planets",
       //     {
       //       event: dateToSend,
-      //       planets: ["Sun", "Moon"],
-      //       topo: [this.store.longitud, this.store.latitud, null],
+      //       planets: ["Moon", "Venus"],
+      //       topo: [this.store.longitud, "6.2476376", null],
       //       zodiac: "Lahiri",
       //     },
       //     {
