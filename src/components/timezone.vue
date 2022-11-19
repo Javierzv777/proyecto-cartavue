@@ -1,7 +1,7 @@
 <template>
   <div>
-    <select v-model="store.timeZone">
-      <option v-for="(item, i) of items" :key="{ i }">{{ item }}</option>
+    <select v-model="store.timezone">
+      <option v-for="(item, i) of items" :key="i">{{ item }}</option>
     </select>
   </div>
 </template>

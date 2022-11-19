@@ -6,13 +6,16 @@
 </template>
 
 <script>
-import Axios from "axios";
+import axios from "axios";
 import Country from "./country.vue";
 import State from "./state.vue";
 import City from "./city.vue";
 import Location from "./location.vue";
 import Date from "./date.vue";
 import TimeZone from "./timezone.vue";
+import dayjs from "dayjs";
+import timezone from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
 import store from "./store";
 
 export default {
@@ -25,17 +28,66 @@ export default {
     Location,
     TimeZone,
   },
+  data() {
+    return {
+      store,
+    };
+  },
   methods: {
     submit() {
-      let date = this.store.date.split("-");
-      let time = this.store.time.split(":");
-      // "YYYYMMDDhhmmss",
-      Axios.post("http://ephemeris.kibo.cz/api/v1/planets", {
-        event: `${date[2]}${date[1]}${date[0]}${time[0]}${time[1]}00`,
-        planets: ["Sun", "Moon"],
-        topo: [this.store.longitud, this.store.latitud],
-        zodiac: "Lahiri",
-      });
+      dayjs.extend(utc);
+      dayjs.extend(timezone);
+      let date = this.store.date;
+      let time = this.store.time;
+      let dateToSend = dayjs
+        .tz(`${date}T${time}:00`, this.store.timezone)
+        .format("YYYYMMDDhhmmss");
+      console.log(dateToSend);
+      // // "YYYYMMDDhhmmss",
+      // axios
+      //   .post(
+      //     "http://ephemeris.kibo.cz/api/v1/planets",
+      //     {
+      //       event: dateToSend,
+      //       planets: ["Sun", "Moon"],
+      //       topo: [this.store.longitud, this.store.latitud, null],
+      //       zodiac: "Lahiri",
+      //     },
+      //     {
+      //       headers: {
+      //         Accept: "application/json",
+      //         "Content-Type": "application/json",
+      //       },
+      //     }
+      //   )
+      //   .then((response) => console.log(response.data))
+      //   .catch((e) => console.log(e));
+      const options = {
+        method: "GET",
+        url: "https://astronomy.p.rapidapi.com/api/v2/bodies/positions",
+        params: {
+          latitude: "33.775867",
+          longitude: "-84.39733",
+          from_date: "2017-12-20",
+          to_date: "2017-12-21",
+          elevation: "166",
+          time: "12:00:00",
+        },
+        headers: {
+          "X-RapidAPI-Key":
+            "52becf1054msh91a3130923d63f8p1d9468jsn33bea1c8b790",
+          "X-RapidAPI-Host": "astronomy.p.rapidapi.com",
+        },
+      };
+
+      axios
+        .request(options)
+        .then(function (response) {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
     },
   },
   created: function () {

@@ -7,7 +7,7 @@ let store = {
   longitud: "",
   latitud: "",
   date: "",
-  timeZone: "",
+  timezone: "",
   time: "",
 };
 export default store;
