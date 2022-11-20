@@ -50,7 +50,7 @@ export default {
     return {
       current: 1,
       selectedItem: "",
-      store: store,
+      store,
       items: [],
       // The source url
       // (required)
@@ -103,17 +103,43 @@ export default {
       return data;
     },
     update() {
+      console.log("fdf");
       this.items = [
-        // ...store.states.filter((i) => i.name.indexOf(this.query) !== -1),
+        ...store.cities.filter((i) => i.name.indexOf(this.store.city) !== -1),
       ];
       this.current = -1;
     },
     getInitialData() {
-      this.items = [];
-      // states.filter(
-      // (state) => state.country_name === store.countrie
-      // );
-      store.states = [...this.items];
+      var headers = new Headers();
+      headers.append(
+        "X-CSCAPI-KEY",
+        "d001Y2I2dEpOZWZJOEFMSFNZVUVoUGQ5NUpkTWxVa2Y5OG9JWHU3Ng=="
+      );
+
+      var requestOptions = {
+        method: "GET",
+        headers: headers,
+        redirect: "follow",
+      };
+
+      fetch(
+        `https://api.countrystatecity.in/v1/countries/${this.store.countrie_code}/cities`,
+        requestOptions
+      )
+        .then((response) => response.text())
+        .then((result) => {
+          let cities;
+          if (result) {
+            cities = JSON.parse(result);
+          }
+          if (cities?.length) {
+            this.items = cities;
+            this.store.cities = this.items;
+          }
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
     },
     setActive(index) {
       this.current = index;

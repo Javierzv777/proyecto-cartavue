@@ -12,7 +12,7 @@
       type="text"
       placeholder="..."
       autocomplete="off"
-      v-model="store.countrie"
+      v-model="store.countrieEs"
       @keydown.down="down"
       @keydown.up="up"
       @keydown.enter="hit(current)"
@@ -88,7 +88,9 @@ export default {
       alert(item);
     },
     hit(item) {
+      this.store.countrieEs = this.items.at(item).name_es;
       this.store.countrie = this.items.at(item).name;
+      this.store.countrie_code = this.items.at(item).code;
       this.items = [];
       this.current = -1;
       return;
@@ -103,7 +105,7 @@ export default {
       this.store.state = "";
       this.items = [
         ...this.store.countries.filter(
-          (i) => i.name.indexOf(this.store.countrie) !== -1
+          (i) => i.name_es.indexOf(this.store.countrieEs) !== -1
         ),
       ];
       this.current = -1;

@@ -44,24 +44,30 @@ export default {
         .format("YYYYMMDDhhmmss");
       console.log(dateToSend);
       // "YYYYMMDDhhmmss",
-      // axios
-      //   .post(
-      //     "http://private-17a36a-astrologyapi.apiary-mock.com/api/v1/planets",
-      //     {
-      //       event: dateToSend,
-      //       planets: ["Moon", "Venus"],
-      //       topo: [this.store.longitud, "6.2476376", null],
-      //       zodiac: "Lahiri",
-      //     },
-      //     {
-      //       headers: {
-      //         Accept: "application/json",
-      //         "Content-Type": "application/json",
-      //       },
-      //     }
-      //   )
-      //   .then((response) => console.log(response.data))
-      //   .catch((e) => console.log(e));
+
+      var api = "planets/tropical";
+      var userId = "621240";
+      var apiKey = "60e32bb6fd80a708031a0620a78dbf08";
+      var data = {
+        day: 31,
+        month: 8,
+        year: 1991,
+        hour: 17,
+        min: 23,
+        lat: 19.132,
+        lon: 72.342,
+        tzone: -5.5,
+      };
+      axios
+        .post("https://json.astrologyapi.com/v1/" + api, data, {
+          headers: {
+            authorization: "Basic " + btoa(userId + ":" + apiKey),
+            "Content-Type": "application/json",
+          },
+        })
+        .then((e) => console.log(e))
+        .catch((e) => console.log(e));
+
       const options = {
         method: "GET",
         url: "https://astronomy.p.rapidapi.com/api/v2/bodies/positions",
@@ -79,6 +85,16 @@ export default {
           "X-RapidAPI-Host": "astronomy.p.rapidapi.com",
         },
       };
+
+      // const options = {
+      //   method: "GET",
+      //   url: "https://planets-info-by-newbapi.p.rapidapi.com/api/v1/planet/list",
+      //   headers: {
+      //     "X-RapidAPI-Key":
+      //       "52becf1054msh91a3130923d63f8p1d9468jsn33bea1c8b790",
+      //     "X-RapidAPI-Host": "planets-info-by-newbapi.p.rapidapi.com",
+      //   },
+      // };
 
       axios
         .request(options)
