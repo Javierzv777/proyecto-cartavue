@@ -2,7 +2,7 @@
   <div>
     <input v-model="store.latitud" />
     <input v-model="store.longitud" />
-    <button @click="getLocation">obtener coordenadas</button>
+    <button @click="getLocation">obtener cordenadas</button>
   </div>
 </template>
 
@@ -31,8 +31,8 @@ export default {
         .then((response) => {
           console.log(response.data);
           const { lat, lng } = response.data.results[0].geometry.location;
-          this.store.latitud = lat;
-          this.store.longitud = lng;
+          this.store.latitud = lat.toString();
+          this.store.longitud = lng.toString();
         })
         .catch((e) => console.log(e));
     },

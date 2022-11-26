@@ -17,6 +17,7 @@ import dayjs from "dayjs";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
 import store from "./store";
+import consul from "./consult";
 
 export default {
   name: "search",
@@ -31,6 +32,7 @@ export default {
   data() {
     return {
       store,
+      consul,
     };
   },
   methods: {
@@ -39,9 +41,8 @@ export default {
       dayjs.extend(timezone);
       let date = this.store.date;
       let time = this.store.time;
-      let dateToSend = dayjs
-        .tz(`${date}T${time}:00`, this.store.timezone)
-        .format("YYYYMMDDhhmmss");
+      let dateToSend = dayjs.tz(`${date}T${time}:00`, this.store.timezone);
+      dateToSend = dayjs(dateToSend).tz("UTC");
       console.log(dateToSend);
       // "YYYYMMDDhhmmss",
 
@@ -49,15 +50,29 @@ export default {
       var userId = "621240";
       var apiKey = "60e32bb6fd80a708031a0620a78dbf08";
       var data = {
-        day: 31,
-        month: 8,
-        year: 1991,
-        hour: 17,
-        min: 23,
-        lat: 19.132,
-        lon: 72.342,
-        tzone: -5.5,
+        day: dateToSend.$D,
+        month: dateToSend.$M + 1,
+        year: dateToSend.$y,
+        hour: dateToSend.$H,
+        min: dateToSend.$m,
+        lat: Number(this.store.latitud),
+        lon: Number(this.store.longitud),
+        tzone: 0.0,
       };
+      function getSigno(signo) {
+        if (signo === "Aquarius") return "acuario";
+        if (signo === "Taurus") return "tauro";
+        if (signo === "Gemini") return "géminis";
+        if (signo === "Cancer") return "cáncer";
+        if (signo === "Aries") return "aries";
+        if (signo === "Leo") return "leo";
+        if (signo === "Virgo") return "virgo";
+        if (signo === "Libra") return "libra";
+        if (signo === "Scorpio") return "scorpio";
+        if (signo === "Sagittarius") return "sagitario";
+        if (signo === "Capricorn") return "capricornio";
+        if (signo === "Pisces") return "piscis";
+      }
       axios
         .post("https://json.astrologyapi.com/v1/" + api, data, {
           headers: {
@@ -65,19 +80,54 @@ export default {
             "Content-Type": "application/json",
           },
         })
-        .then((e) => console.log(e))
+        .then((e) => {
+          if (e.data?.length && this.consul?.length) {
+            // this.consul[1].nombre1 =
+            let fillData = this.store.fillData;
+            //signos
+            fillData.ascendente.signo = `ascendente en ${getSigno(
+              e.data[10].sign
+            )}`;
+            fillData.pluton.signo = `plutón en ${getSigno(e.data[9].sign)}`;
+            fillData.neptuno.signo = `neptuno en ${getSigno(e.data[8].sign)}`;
+            fillData.urano.signo = `urano en ${getSigno(e.data[7].sign)}`;
+            fillData.saturno.signo = `saturno en ${getSigno(e.data[6].sign)}`;
+            fillData.jupiter.signo = `júpiter en ${getSigno(e.data[4].sign)}`;
+            fillData.marte.signo = `marte en ${getSigno(e.data[2].sign)}`;
+            fillData.venus.signo = `venus en ${getSigno(e.data[5].sign)}`;
+            fillData.mercurio.signo = `mercurio en ${getSigno(e.data[3].sign)}`;
+            fillData.luna.signo = `luna en ${getSigno(e.data[1].sign)}`;
+            fillData.sol.signo = `sol en ${getSigno(e.data[0].sign)}`;
+            //casas
+            fillData.ascendente.casa = `ascendente en casa ${e.data[10].house}`;
+            fillData.pluton.casa = `plutón en casa ${e.data[9].house}`;
+            fillData.neptuno.casa = `neptuno en casa ${e.data[8].house}`;
+            fillData.urano.casa = `urano en casa ${e.data[7].house}`;
+            fillData.saturno.casa = `saturno en casa ${e.data[6].house}`;
+            fillData.jupiter.casa = `júpiter en casa ${e.data[4].house}`;
+            fillData.marte.casa = `marte en casa ${e.data[2].house}`;
+            fillData.venus.casa = `venus en casa ${e.data[5].house}`;
+            fillData.mercurio.casa = `mercurio en casa ${e.data[3].house}`;
+            fillData.luna.casa = `luna en casa ${e.data[1].house}`;
+            fillData.sol.casa = `sol en casa ${e.data[0].house}`;
+
+            console.log(e);
+            console.log(this.consul[1].nombre1);
+            this.$router.push({ path: "/api" });
+          }
+        })
         .catch((e) => console.log(e));
 
       const options = {
         method: "GET",
         url: "https://astronomy.p.rapidapi.com/api/v2/bodies/positions",
         params: {
-          latitude: "33.775867",
-          longitude: "-84.39733",
-          from_date: "2017-12-20",
-          to_date: "2017-12-21",
+          latitude: this.store.latitud.substring(0, 9),
+          longitude: this.store.longitud.substring(0, 9),
+          from_date: date,
+          to_date: date,
           elevation: "166",
-          time: "12:00:00",
+          time: time + ":00",
         },
         headers: {
           "X-RapidAPI-Key":

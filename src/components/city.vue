@@ -172,6 +172,7 @@ li.active {
   color: red;
 }
 ul {
+  position: absolute;
   list-style-type: none;
   width: 177px;
   clear: both;
