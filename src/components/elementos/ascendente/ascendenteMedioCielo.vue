@@ -1,8 +1,5 @@
 <template>
-  <div :class="style.principal">
-    <button :class="style.cargarCampo" @click="cargarCampo">
-      cargar campo
-    </button>
+  <div :class="style.principal" class="container">
     <div :class="style.contenedorMolde">
       <!---------signo----------------->
 
@@ -12,16 +9,30 @@
         v-on:submit.prevent="cargarInput1()"
         method="POST"
       >
-        <select v-model="dato1" style="width: 175px" :class="style.select">
-          <option disabled value="">__ascendente</option>
-          <option v-for="ascendente in ascendentes" :key="ascendente.id">
-            {{ ascendente }}
-          </option>
-        </select>
+        <div class="row frex">
+          <div class="col-sm-5">
+            <b-button @click="cargarCampo"> cargar campo </b-button>
+          </div>
+          <b-form-select
+            class="col-sm-3"
+            v-model="dato1"
+            style="width: 175px"
+            :class="style.select"
+          >
+            <option disabled value="">__ascendente</option>
+            <option v-for="ascendente in ascendentes" :key="ascendente.id">
+              {{ ascendente }}
+            </option>
+          </b-form-select>
 
-        <div :class="style.cargar1">
-          <button id="cargar1" type="submit">cargar</button>
-          <button id="borrar1" @click.prevent="deleteInput1()">borrar</button>
+          <div class="col-sm-2">
+            <b-button id="cargar1" type="submit">cargar</b-button>
+          </div>
+          <div class="col-sm-2">
+            <b-button id="borrar1" @click.prevent="deleteInput1()"
+              >borrar</b-button
+            >
+          </div>
         </div>
       </form>
       <!-------------casa---------------->
@@ -31,16 +42,22 @@
         action=""
         method="POST"
       >
-        <select v-model="dato2" style="width: 175px" :class="style.select">
+        <b-form-select
+          v-model="dato2"
+          style="width: 175px"
+          :class="style.select"
+        >
           <option disabled value="">__medio cielo</option>
           <option v-for="medioCielo in medioCielos" :key="medioCielo.id">
             {{ medioCielo }}
           </option>
-        </select>
+        </b-form-select>
 
         <div :class="style.cargar2">
-          <button id="cargar2" type="submit">cargar</button>
-          <button id="borrar2" @click.prevent="deleteInput2()">borrar</button>
+          <b-button id="cargar2" type="submit">cargar</b-button>
+          <b-button id="borrar2" @click.prevent="deleteInput2()"
+            >borrar</b-button
+          >
         </div>
       </form>
 
@@ -52,8 +69,8 @@
       >
         <div :class="style.contenedorAspectosInvisibles">
           <div class="botonAspec" style="display: none">
-            <button @click.prevent="addAspecto">agregar</button>
-            <button @click.prevent="deleteAspecto">borrar</button>
+            <b-button @click.prevent="addAspecto">agregar</b-button>
+            <b-button @click.prevent="deleteAspecto">borrar</b-button>
           </div>
 
           <div :class="style.aspectos2">
@@ -67,17 +84,21 @@
             </div>
             <div style="width: 200px">
               <div :class="style.cargarAspectos2" style="display: none">
-                <button type="submit">cargar aspectos</button>
+                <b-button type="submit">cargar aspectos</b-button>
               </div>
 
               <div :class="style.cargarCampo2">
-                <button @click="cargarCampo">cargar campo</button>
+                <b-button @click="cargarCampo">cargar campo</b-button>
               </div>
 
               <div :class="style.limpiarCamp2">
-                <button id="limpiar" v-on:click="limpiarCampo">
+                <b-button
+                  variant="danger"
+                  id="limpiar"
+                  v-on:click="limpiarCampo"
+                >
                   limpiar campo
-                </button>
+                </b-button>
               </div>
             </div>
           </div>
@@ -86,7 +107,7 @@
       <!---------------------------------------------------------------------------------------------------->
     </div>
     <div :class="style.limpiarCamp">
-      <button id="limpiar" v-on:click="limpiarCampo">limpiar campo</button>
+      <b-button id="limpiar" v-on:click="limpiarCampo">limpiar campo</b-button>
     </div>
   </div>
 </template>
