@@ -10,11 +10,8 @@
         method="POST"
       >
         <div class="row frex">
-          <div class="col-sm-5">
-            <b-button @click="cargarCampo"> cargar campo </b-button>
-          </div>
           <b-form-select
-            class="col-sm-3"
+            class="col-3"
             v-model="dato1"
             style="width: 175px"
             :class="style.select"
@@ -24,11 +21,8 @@
               {{ ascendente }}
             </option>
           </b-form-select>
-
-          <div class="col-sm-2">
-            <b-button id="cargar1" type="submit">cargar</b-button>
-          </div>
-          <div class="col-sm-2">
+          <div class="col-12 col-sm-6 mb-2">
+            <b-button class="mr-3" id="cargar1" type="submit">cargar</b-button>
             <b-button id="borrar1" @click.prevent="deleteInput1()"
               >borrar</b-button
             >
@@ -87,11 +81,10 @@
                 <b-button type="submit">cargar aspectos</b-button>
               </div>
 
-              <div :class="style.cargarCampo2">
-                <b-button @click="cargarCampo">cargar campo</b-button>
-              </div>
-
               <div :class="style.limpiarCamp2">
+                <div class="col-sm-5">
+                  <b-button @click="cargarCampo"> cargar campo </b-button>
+                </div>
                 <b-button
                   variant="danger"
                   id="limpiar"
@@ -105,9 +98,6 @@
         </div>
       </form>
       <!---------------------------------------------------------------------------------------------------->
-    </div>
-    <div :class="style.limpiarCamp">
-      <b-button id="limpiar" v-on:click="limpiarCampo">limpiar campo</b-button>
     </div>
   </div>
 </template>
