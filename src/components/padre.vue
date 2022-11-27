@@ -41,6 +41,7 @@
       </div>
 
       <hijo
+        class="justify-content-center"
         id="padre"
         @alertaFlash="primerFlash"
         @alertaFlashtwo="segundoFlash"

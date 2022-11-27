@@ -1,17 +1,12 @@
 <template>
-  <div :class="style.principal" class="container">
-    <div :class="style.contenedorMolde">
+  <div :class="style.principal" class="container ml-2 d-flex">
+    <div class="d-lg-flex justify-contend-lg-end">
       <!---------signo----------------->
 
-      <form
-        :class="style.signo"
-        action=""
-        v-on:submit.prevent="cargarInput1()"
-        method="POST"
-      >
-        <div class="row frex">
+      <form action="" v-on:submit.prevent="cargarInput1()" method="POST">
+        <div class="row mb-2 justify-content-center">
           <b-form-select
-            class="col-3"
+            class="col-3 col-md-6 mb-2"
             v-model="dato1"
             style="width: 175px"
             :class="style.select"
@@ -21,12 +16,12 @@
               {{ ascendente }}
             </option>
           </b-form-select>
-          <div class="col-12 col-sm-6 mb-2">
-            <b-button class="mr-3" id="cargar1" type="submit">cargar</b-button>
+          <span class="col-12 col-sm-6 col-md-6 d-flex justify-content-center">
+            <b-button class="mx-1" id="cargar1" type="submit">cargar</b-button>
             <b-button id="borrar1" @click.prevent="deleteInput1()"
               >borrar</b-button
             >
-          </div>
+          </span>
         </div>
       </form>
       <!-------------casa---------------->
@@ -36,22 +31,24 @@
         action=""
         method="POST"
       >
-        <b-form-select
-          v-model="dato2"
-          style="width: 175px"
-          :class="style.select"
-        >
-          <option disabled value="">__medio cielo</option>
-          <option v-for="medioCielo in medioCielos" :key="medioCielo.id">
-            {{ medioCielo }}
-          </option>
-        </b-form-select>
-
-        <div :class="style.cargar2">
-          <b-button id="cargar2" type="submit">cargar</b-button>
-          <b-button id="borrar2" @click.prevent="deleteInput2()"
-            >borrar</b-button
+        <div class="row mb-2 justify-content-center">
+          <b-form-select
+            class="text-justify mb-2"
+            v-model="dato2"
+            style="width: 175px"
+            :class="style.select"
           >
+            <option disabled value="">__medio cielo</option>
+            <option v-for="medioCielo in medioCielos" :key="medioCielo.id">
+              {{ medioCielo }}
+            </option>
+          </b-form-select>
+          <span class="col-12 col-sm-6 d-flex justify-content-center">
+            <b-button class="mx-1" id="cargar2" type="submit">cargar</b-button>
+            <b-button id="borrar2" @click.prevent="deleteInput2()"
+              >borrar</b-button
+            >
+          </span>
         </div>
       </form>
 
@@ -76,23 +73,19 @@
                             </datalist>
                         </div> -->
             </div>
-            <div style="width: 200px">
-              <div :class="style.cargarAspectos2" style="display: none">
-                <b-button type="submit">cargar aspectos</b-button>
-              </div>
 
-              <div :class="style.limpiarCamp2">
-                <div class="col-sm-5">
-                  <b-button @click="cargarCampo"> cargar campo </b-button>
-                </div>
-                <b-button
-                  variant="danger"
-                  id="limpiar"
-                  v-on:click="limpiarCampo"
-                >
-                  limpiar campo
-                </b-button>
-              </div>
+            <div :class="style.cargarAspectos2" style="display: none">
+              <b-button type="submit">cargar aspectos</b-button>
+            </div>
+
+            <div class="justify-content-center">
+              <b-button @click="cargarCampo" class="mb-2">
+                cargar campo
+              </b-button>
+
+              <b-button variant="danger" id="limpiar" v-on:click="limpiarCampo">
+                limpiar campo
+              </b-button>
             </div>
           </div>
         </div>
